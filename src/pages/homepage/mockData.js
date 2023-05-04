@@ -19,3 +19,21 @@ export const securityTypes = [
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, mi interdum sodales interdum, diam eros tincidunt neque, in rutrum magna tellus ut ante",
   },
 ];
+
+export const offerTypes = [
+  {
+    logoUrl: securityUser,
+    title: "User Secured",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, mi interdum sodales interdum, diam eros tincidunt neque, in rutrum magna tellus ut ante",
+  },
+  {
+    logoUrl: securityCard,
+    title: "Card Secured",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, mi interdum sodales interdum, diam eros tincidunt neque, in rutrum magna tellus ut ante",
+  },
+  {
+    logoUrl: securitySafe,
+    title: "Web Secured",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, mi interdum sodales interdum, diam eros tincidunt neque, in rutrum magna tellus ut ante",
+  },
+];

@@ -14,7 +14,7 @@ function Footer() {
         <p className="text-center text-[40px] mt-[5px] sm:text-[25px]">
           Let's make this work
         </p>
-        <div className="flex justify-center h-[45px] w-[600px] sm:max-w-[400px] mt-[10px]">
+        <div className="flex justify-center h-[45px] w-[600px] sm:w-full mt-[10px]">
           <div className=" flex justify-between items-center gap-[30px] sm:gap-[10px] h-full w-full ">
             <input
               type="text"
@@ -24,6 +24,15 @@ function Footer() {
               Request a Demo
             </button>
           </div>
+        </div>
+      </div>
+      <div className="flex justify-center items-center ">
+        <div className="flex justify-center items-center gap-[20px] mt-[30px] sm:flex-col  rounded-lg border-2 border-light-col p-[10px]">
+          <p>+234 810 080 5056</p>
+          <p className="sm:hidden">|</p>
+          <p>olakved@gmail.com</p>
+          <p className="sm:hidden">|</p>
+          <p>Lagos, Nigeria</p>
         </div>
       </div>
       <div className="flex justify-between items-center mt-[50px] sm:gap-[10px] sm:justify-center">

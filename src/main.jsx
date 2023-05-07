@@ -8,6 +8,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "react-toastify/dist/ReactToastify.css";
 import { DataProvider } from "./context/dataProvider.jsx";
+import { UserProvider } from "./context/userContext.jsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,9 +23,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <DataProvider>
-          <App />
-        </DataProvider>
+        <UserProvider>
+          <DataProvider>
+            <App />
+          </DataProvider>
+        </UserProvider>
         <ToastContainer />
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />

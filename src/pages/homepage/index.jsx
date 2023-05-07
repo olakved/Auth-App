@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import homeBg from "../../assets/homeBg.jpg";
 import salesman from "../../assets/salesman.jpg";
 import { useNavigate } from "react-router-dom";

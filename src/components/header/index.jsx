@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import menuIcon from "../../assets/menuIcon.png";
+import { UserContext } from "../../context/userContext";
 
 function Header() {
   const links = [
@@ -13,6 +14,8 @@ function Header() {
 
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+
+  const { userData } = useContext(UserContext);
 
   return (
     <div className="shadow-md  w-full fixed top-0 left-0 z-50">
@@ -43,11 +46,13 @@ function Header() {
                 </Link>
               </li>
             ))}
-            <Link to="/login">
-              <button className="bg-extra-col text-xl text-white py-[3px] px-6 rounded-md ml-6 hover:bg-darky-col duration-500">
-                Login
-              </button>
-            </Link>
+            {userData ? null : (
+              <Link to="/login">
+                <button className="bg-extra-col text-xl text-white py-[3px] px-6 rounded-md ml-6 hover:bg-darky-col duration-500">
+                  Login
+                </button>
+              </Link>
+            )}
           </ul>
         </div>
         <div

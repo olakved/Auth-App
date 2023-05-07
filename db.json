@@ -19,52 +19,31 @@
   "users": [
     {
       "id": "834c58e3-91e8-4381-8c8c-b157c5b27818",
-      "name": "Lekan Michael",
+      "firstName": "Lekan",
+      "lastName": "Michael",
       "email": "olakved@gmail.com",
       "phone": "08100805056",
+      "password": "jesusislord",
+      "username": "olakved",
+      "occupation": "Software Developer",
+      "jobTitle": "Senior Frontend Developer",
+      "homeAddress": "Lagos, Nigeria",
+      "workAddress": "Unilag Eststae, Isheri Magodo, Lagos"
+    },
+    {
+      "id": "cf1d6b34-e321-4c8d-9d90-8e956c2185fc",
+      "firstName": "Akintunde",
+      "lastName": "Akinsami",
+      "phone": "09099887766",
+      "email": "akintunde@gmail.com",
       "password": "jesusislord"
     },
     {
-      "id": "db4c3a9f-ce55-46f2-b25b-a88cac2424b4",
-      "fullName": "Lekan Michael",
-      "phone": "08100805056",
-      "email": "olakved@gmail.comm",
-      "password": "jesusislord"
-    },
-    {
-      "id": "8f5c76ec-dc09-4beb-aa24-d6af2615acc5",
-      "fullName": "Idowu Okutubo",
-      "phone": "09036188269",
-      "email": "olakvednysc@gmail.com",
-      "password": "jesusislord"
-    },
-    {
-      "id": "dde50471-0af5-4535-b41e-226d0ad04994",
-      "fullName": "Akin Akorede",
-      "phone": "08119813319",
-      "email": "thickmum@gmail.com",
-      "password": "jesusisis"
-    },
-    {
-      "id": "26181b9f-925d-421a-aecf-c2569dee7813",
-      "fullName": "Okutubo Samuel",
-      "phone": "08054751969",
-      "email": "samtubo@gmail.com",
-      "password": "jesusislord"
-    },
-    {
-      "id": "a0d4885d-3d2d-42a1-a567-5db74aabbbe7",
-      "name": "kele Kale",
-      "email": "wosivo4222@fitzola.com",
-      "phone": "2349999999990",
-      "password": "gberumi"
-    },
-    {
-      "id": "c6872a0d-564c-46eb-915c-78c7a1f35b07",
-      "fullName": "Adekunle Idowu",
-      "phone": "09099999999",
-      "email": "adekunle1960@gmail.com",
-      "password": "jesusislord"
+      "occupation": "qq",
+      "jobTitle": "eee",
+      "homeAddress": "rrr",
+      "workAddress": "yyy",
+      "id": "-dOpQzc"
     }
   ]
 }

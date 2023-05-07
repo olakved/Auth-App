@@ -10,6 +10,7 @@ import AppLayout from "./pages/layout";
 import DashHeader from "./components/dashHeader";
 import CoinPage from "./pages/coins";
 import CoinDetails from "./components/common/coin";
+import { PrivateRoute } from "./utils/hooks/privateRoute";
 
 function App() {
   return (
@@ -26,13 +27,15 @@ function App() {
 
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        {/* <Route path="/profile" element={<ProfilePage />} /> */}
         <Route path="*" element={<ErrorPage />} />
 
         {/* App Routes */}
-        <Route path="profile" element={<AppLayout />}>
-          <Route index element={<ProfilePage />} />
-          <Route path="coins" element={<CoinPage />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="profile" element={<AppLayout />}>
+            <Route index element={<ProfilePage />} />
+            <Route path="coins" element={<CoinPage />} />
+          </Route>
         </Route>
 
         {/* single coin route */}

@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { dbUsersData, loginMutation } from "../../utils/hooks/dbUsersData";
 import { toastObject } from "../../utils/helper";
 import { toast } from "react-toastify";
+import { pushToLocalStorage } from "../../context/userContext";
 
 function LoginPage() {
   const {
@@ -33,6 +34,11 @@ function LoginPage() {
       return;
     }
 
+    const toSaveObject = data.find(
+      (objectData) => objectData.email === formData.email
+    );
+    pushToLocalStorage(toSaveObject);
+
     const findObject = data.some(
       (objectData) =>
         objectData.email === formData.email &&
@@ -42,6 +48,7 @@ function LoginPage() {
     if (findObject === true) {
       toast.success("login successful", toastObject());
       navigate("/profile");
+      window.location.reload();
       return;
     }
     if (findObject === false) {

@@ -1,6 +1,12 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
-import { deleteRequest, getRequest, postRequest } from "../apiCalls";
+import {
+  deleteRequest,
+  getRequest,
+  patchRequest,
+  postRequest,
+  putRequest,
+} from "../apiCalls";
 import { generateNumbers, queryKeyUpdater, toastObject } from "../helper";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -20,6 +26,13 @@ export const getUsersData = (userNumber) => {
   // console.log(data);
   return { isLoading, isError, data };
 };
+
+// export const updateUsersData = (userNumber) => {
+//   const { isLoading, isError, data } = useQuery(["user"], () =>
+//     patchRequest({ url: `http://localhost:3001/users/${userNumber}` })
+//   );
+//   return { isLoading, isError, data };
+// };
 
 export const postMutation = (queryName) => {
   const navigate = useNavigate();
@@ -47,6 +60,33 @@ export const postMutation = (queryName) => {
     },
   });
   return { userData, mutate, userLoading };
+};
+
+export const patchMutation = (queryName) => {
+  const navigate = useNavigate();
+  const queryFuncName = queryKeyUpdater(queryName);
+  const queryClient = useQueryClient();
+  const {
+    data: patchUserData,
+    mutate,
+    isLoading: patchUserLoading,
+    isError,
+  } = useMutation(putRequest, {
+    async onSuccess(response) {
+      if (response?.statusText === "Created") {
+        navigate("/profile");
+      }
+      await queryClient.invalidateQueries(
+        queryFuncName,
+        { exact: true },
+        { throwOnError: true }
+      );
+    },
+    onError(error) {
+      console.log(error);
+    },
+  });
+  return { patchUserData, mutate, patchUserLoading };
 };
 
 export const deleteMutation = (queryName) => {
@@ -116,6 +156,31 @@ export const updateMutation = (queryName) => {
   });
   return { userData, mutate, deleteLoading };
 };
+
+// export const patchMutation = (queryName) => {
+//   const queryFuncName = queryKeyUpdater(queryName);
+
+//   const queryClient = useQueryClient();
+//   const {
+//     data: updateUserData,
+//     mutate,
+//     isLoading: updateLoading,
+//     isError,
+//   } = useMutation(patchRequest, {
+//     async onSuccess(response) {
+//       console.log(response);
+//       await queryClient.invalidateQueries(
+//         queryFuncName,
+//         { exact: true },
+//         { throwOnError: true }
+//       );
+//     },
+//     onError(error) {
+//       console.log(error);
+//     },
+//   });
+//   return { updateUserData, mutate, updateLoading };
+// };
 
 export const signupMutation = (queryName) => {
   const navigate = useNavigate();

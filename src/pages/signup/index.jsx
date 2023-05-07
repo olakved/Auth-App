@@ -23,7 +23,8 @@ function SignupPage() {
   } = useForm({
     email: "",
     password: "",
-    fullName: "",
+    firstName: "",
+    lastName: "",
     phone: "",
   });
 
@@ -34,7 +35,8 @@ function SignupPage() {
 
   const submitForm = (formData) => {
     if (
-      formData.fullName === "" ||
+      formData.firstName === "" ||
+      formData.lastName === "" ||
       formData.email === "" ||
       formData.password === "" ||
       formData.phone === ""
@@ -72,14 +74,24 @@ function SignupPage() {
             <h1>Signup is free!</h1>
           </div>
           <form action="" onSubmit={handleSubmit(submitForm)}>
-            <input
-              type="text"
-              placeholder="Full name"
-              name="fullName"
-              {...register("fullName")}
-              autoComplete="off"
-              className="border-2 border-darky-col outline-none rounded-md py-2 px-5 w-full mb-4"
-            />
+            <div className="flex gap-2">
+              <input
+                type="text"
+                placeholder="First name"
+                name="firstName"
+                {...register("firstName")}
+                autoComplete="off"
+                className="border-2 border-darky-col outline-none rounded-md py-2 px-5 w-full mb-4"
+              />
+              <input
+                type="text"
+                placeholder="Last name"
+                name="lastName"
+                {...register("lastName")}
+                autoComplete="off"
+                className="border-2 border-darky-col outline-none rounded-md py-2 px-5 w-full mb-4"
+              />
+            </div>
 
             <input
               type="text"

@@ -17,6 +17,9 @@ export default {
 
       sm: { max: "639px" },
       // => @media (max-width: 639px) { ... }
+
+      xlsm: { max: "320px" },
+      // => @media (max-width: 320px) { ... }
     },
     extend: {
       colors: {

@@ -18,32 +18,17 @@
   ],
   "users": [
     {
-      "id": "834c58e3-91e8-4381-8c8c-b157c5b27818",
+      "id": "9257008a-4c06-42b4-8083-c00060c89f25",
       "firstName": "Lekan",
       "lastName": "Michael",
-      "email": "olakved@gmail.com",
-      "phone": "08100805056",
-      "password": "jesusislord",
       "username": "olakved",
-      "occupation": "Software Developer",
-      "jobTitle": "Senior Frontend Developer",
-      "homeAddress": "Lagos, Nigeria",
-      "workAddress": "Unilag Eststae, Isheri Magodo, Lagos"
-    },
-    {
-      "id": "cf1d6b34-e321-4c8d-9d90-8e956c2185fc",
-      "firstName": "Akintunde",
-      "lastName": "Akinsami",
-      "phone": "09099887766",
-      "email": "akintunde@gmail.com",
-      "password": "jesusislord"
-    },
-    {
-      "occupation": "qq",
-      "jobTitle": "eee",
-      "homeAddress": "rrr",
-      "workAddress": "yyy",
-      "id": "-dOpQzc"
+      "phone": "08100805056",
+      "email": "olakved@gmail.com",
+      "password": "jesusislord",
+      "occupation": "Software Development",
+      "jobTitle": "Senior Developer",
+      "homeAddress": "Unilag estate, Magodo, Lagos",
+      "workAddress": "Lagos, Nigeria"
     }
   ]
 }

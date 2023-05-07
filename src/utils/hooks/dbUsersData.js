@@ -71,10 +71,11 @@ export const patchMutation = (queryName) => {
     mutate,
     isLoading: patchUserLoading,
     isError,
-  } = useMutation(putRequest, {
+  } = useMutation(patchRequest, {
     async onSuccess(response) {
-      if (response?.statusText === "Created") {
-        navigate("/profile");
+      if (response) {
+        toast.success("succesful", toastObject());
+        // console.log(response, "111111111111111111");
       }
       await queryClient.invalidateQueries(
         queryFuncName,

@@ -9,10 +9,13 @@ import { toast } from "react-toastify";
 import { postingUrl, updateUrl } from "../../utils/url";
 import { toastObject } from "../../utils/helper";
 import { v4 as uuidv4 } from "uuid";
+import { UPDATE_USER_URL } from "../../utils/apiUrl";
 
 function ProfilePage() {
   const { userData } = useContext(UserContext);
   const [isEditMode, setEditMode] = useState(false);
+
+  // console.log(userData);
 
   const handleCancel = () => {
     setEditMode(false);
@@ -37,7 +40,7 @@ function ProfilePage() {
   const { isLoading, error, data } = dbUsersData();
   // console.log(data);
 
-  const { patchUserData, mutate } = patchMutation("allUsers");
+  const { patchUserData, mutate, patchUserLoading } = patchMutation("allUsers");
 
   const submitForm = (formData) => {
     if (
@@ -57,12 +60,17 @@ function ProfilePage() {
       return;
     }
 
+    // if (userData?.id === ) {
+    //   return;
+    // }
+
     const userObject = {
-      // id: uuidv4(),
+      id: userData?.id,
       ...formData,
     };
-    mutate({ url: postingUrl, data: userObject });
-    console.log(formData);
+
+    mutate({ url: UPDATE_USER_URL(userObject.id), data: userObject });
+    // console.log(formData);
   };
 
   return (

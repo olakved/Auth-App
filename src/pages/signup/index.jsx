@@ -26,6 +26,7 @@ function SignupPage() {
     firstName: "",
     lastName: "",
     phone: "",
+    username: "",
   });
 
   const { isLoading, error, data } = dbUsersData();
@@ -38,6 +39,7 @@ function SignupPage() {
       formData.firstName === "" ||
       formData.lastName === "" ||
       formData.email === "" ||
+      formData.username === "" ||
       formData.password === "" ||
       formData.phone === ""
     ) {
@@ -48,7 +50,7 @@ function SignupPage() {
     const findObject = data.some(
       (objectData) => objectData.email === formData.email,
       (objectData) => objectData.phone === formData.phone,
-      (objectData) => objectData.fullName === formData.fullName
+      (objectData) => objectData.username === formData.username
     );
 
     if (findObject === true) {
@@ -74,7 +76,7 @@ function SignupPage() {
             <h1>Signup is free!</h1>
           </div>
           <form action="" onSubmit={handleSubmit(submitForm)}>
-            <div className="flex gap-2">
+            <div className="flex gap-2 sm:flex-col">
               <input
                 type="text"
                 placeholder="First name"
@@ -92,15 +94,25 @@ function SignupPage() {
                 className="border-2 border-darky-col outline-none rounded-md py-2 px-5 w-full mb-4"
               />
             </div>
+            <div>
+              <input
+                type="text"
+                placeholder="username"
+                name="username"
+                {...register("username")}
+                autoComplete="off"
+                className="border-2 border-darky-col outline-none rounded-md py-2 px-5 w-full mb-4"
+              />
+              <input
+                type="text"
+                placeholder="Phone"
+                name="phone"
+                {...register("phone")}
+                autoComplete="off"
+                className="border-2 border-darky-col outline-none rounded-md py-2 px-5 w-full mb-4"
+              />
+            </div>
 
-            <input
-              type="text"
-              placeholder="Phone"
-              name="phone"
-              {...register("phone")}
-              autoComplete="off"
-              className="border-2 border-darky-col outline-none rounded-md py-2 px-5 w-full mb-4"
-            />
             <input
               type="email"
               placeholder="Email"

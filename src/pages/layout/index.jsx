@@ -28,7 +28,6 @@ function AppLayout() {
                   className="h-[50px] w-[50px] md:h-[20px] md:w-[20px] bg-white absolute cursor-pointer  invisible md:visible"
                 />
               </span>
-
               <span className="mr-3 ml-8">
                 <img
                   src={logo}

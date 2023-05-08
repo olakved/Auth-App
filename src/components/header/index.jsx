@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import menuIcon from "../../assets/menuIcon.png";
+import user from "../../assets/user.png";
 import { UserContext } from "../../context/userContext";
 
 function Header() {
@@ -13,14 +14,16 @@ function Header() {
   ];
 
   const [open, setOpen] = useState(false);
+  const [openUser, setOpenUser] = useState(false);
   const navigate = useNavigate();
 
   const { userData } = useContext(UserContext);
+  const { logout } = useContext(UserContext);
 
   return (
     <div className="shadow-md  w-full fixed top-0 left-0 z-50">
-      <div className="flex justify-between items-center bg-white py-4 md:px-10 px-7 md:flex-col">
-        <div className="font-bold text-2xl cursor-pointer flex items-center text-dark-green">
+      <div className="flex justify-between items-center bg-[white] py-4 md:px-10 pr-[95px] md:flex-col">
+        <div className="font-bold text-2xl cursor-pointer flex items-center sm:mr-[40px]">
           <span className="mr-3 ml-8">
             <img src={logo} alt="logo" className="rounded-full w-10 h-10" />
           </span>
@@ -28,7 +31,7 @@ function Header() {
         </div>
         <div className={`${!open ? "md:hidden" : ""}`}>
           <ul
-            className="flex gap-5 md:items-center md:flex-col md:pb-0 md:mt-5 md:static bg-white  md:w-auto  transition-all duration-500 ease-in ${
+            className="flex gap-5 md:items-center md:flex-col md:pb-0 mr-5 md:mt-5 md:static bg-white  md:w-auto  transition-all duration-500 ease-in ${
             "
           >
             {links.map((link) => (
@@ -55,11 +58,45 @@ function Header() {
             )}
           </ul>
         </div>
-        <div
-          className="absolute right-8 top-8 cursor-pointer invisible md:visible "
-          onClick={() => setOpen(!open)}
-        >
-          <img src={menuIcon} alt="" className="w-5" />
+        <div className="absolute -right-2 md:right-10 md:top-8 sm:top-[25px] flex items-center">
+          {userData ? (
+            <div className="mr-[60px] md:mr-[40px] sm:mr-[20px]  rounded-full  ">
+              <img
+                src={user}
+                alt=""
+                className="w-5 h-5 cursor-pointer"
+                onClick={() => setOpenUser(!openUser)}
+              />
+              <div
+                className={`${
+                  !openUser ? "hidden" : ""
+                }  p-[3px] shadow-lg text-[16px] md:text-[12px] absolute bg-white`}
+              >
+                <p
+                  className="px-[10px] py-[5px] cursor-pointer"
+                  onClick={() => {
+                    {
+                      navigate("/profile") ? false : setOpen(!openUser);
+                    }
+                  }}
+                >
+                  Profile
+                </p>
+                <p
+                  className="px-[10px] py-[5px] cursor-pointer"
+                  onClick={logout}
+                >
+                  Logout
+                </p>
+              </div>
+            </div>
+          ) : null}
+          <div
+            className=" cursor-pointer invisible md:visible "
+            onClick={() => setOpen(!open)}
+          >
+            <img src={menuIcon} alt="" className="w-5" />
+          </div>
         </div>
       </div>
     </div>

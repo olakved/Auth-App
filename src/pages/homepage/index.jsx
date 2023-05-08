@@ -90,9 +90,6 @@ function Homepage() {
             <img src={salesman} alt="" className="h-full w-full" />
           </div>
           <div className="px-[30px] sm:mt-[30px]  flex flex-col justify-center gap-[30px] md:gap-[10px] sm:flex-col sm:gap-[30px] w-1/2 sm:w-full ">
-            {/* <h1 className="font-bold text-center text-darky-col text-[50px] sm:text-[25px]">
-              What We Offer
-            </h1> */}
             {offerTypes?.map((item, index) => (
               <div
                 key={index}

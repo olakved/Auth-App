@@ -138,7 +138,7 @@ function SignupPage() {
               </i>
             </p>
 
-            <button className="bg-darky-col text-white outline-none rounded-md p-2 w-full hover:bg-light-col">
+            <button className="bg-darky-col text-white outline-none rounded-md p-2 w-full hover:bg-light-col cursor-pointer">
               Sign Up
             </button>
           </form>

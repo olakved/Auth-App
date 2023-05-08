@@ -2,6 +2,14 @@ import securityCard from "../../assets/securityCard.png";
 import securitySafe from "../../assets/securitySafe.png";
 import securityUser from "../../assets/securityUser.png";
 
+export const heroData = [
+  {
+    logoUrl: securityUser,
+    title: "User Secured",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, mi interdum sodales interdum, diam eros tincidunt neque, in rutrum magna tellus ut ante",
+  },
+];
+
 export const securityTypes = [
   {
     logoUrl: securityUser,

@@ -100,7 +100,7 @@ function LoginPage() {
 
             <button
               type="submit"
-              className="h-[40px] rounded-lg bg-white text-darky-col"
+              className="h-[40px] rounded-lg bg-white text-darky-col cursor-pointer"
             >
               Login
             </button>

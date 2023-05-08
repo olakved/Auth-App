@@ -25,10 +25,28 @@
       "phone": "08100805056",
       "email": "olakved@gmail.com",
       "password": "jesusislord",
-      "occupation": "Software",
-      "jobTitle": "Senior",
-      "homeAddress": "Ogun",
-      "workAddress": "Canada"
+      "occupation": "Software Engineering",
+      "jobTitle": "Senior Developer",
+      "homeAddress": "9c, environmental cresent, Isheri Magodo, Lagos",
+      "workAddress": "Lagos, Nigeria"
+    },
+    {
+      "id": "2c30085f-0171-4135-88eb-121f50fa83eb",
+      "firstName": "Idris",
+      "lastName": "Anibaba",
+      "username": "Anis",
+      "phone": "+2349067777658",
+      "email": "tunde_anees@yahoo.com",
+      "password": "idrisanees"
+    },
+    {
+      "id": "0117fd0e-d739-49c4-b266-28082eb956a0",
+      "firstName": "Akintunde",
+      "lastName": "Akinsanmi",
+      "username": "akin",
+      "phone": "09088776655",
+      "email": "akintunde@gmail.com",
+      "password": "jesusislord"
     }
   ],
   "temperature": [

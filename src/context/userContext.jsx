@@ -27,7 +27,7 @@ export const UserProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.clear();
-    navigate("/login");
+    navigate("/");
   };
 
   return (

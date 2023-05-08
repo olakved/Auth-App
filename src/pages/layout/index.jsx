@@ -19,7 +19,10 @@ function AppLayout() {
       <div>
         <div className="shadow-md  w-full fixed top-0 left-0 z-50">
           <div className="flex justify-between items-center bg-white py-4 md:px-[20px] px-7 ">
-            <div className="font-bold text-2xl cursor-pointer flex items-center text-dark-green">
+            <div
+              onClick={() => navigate("/")}
+              className="font-bold text-2xl cursor-pointer flex items-center text-dark-green"
+            >
               <span className="md:mr-[50px] flex items-center">
                 <img
                   src={menuIcon}

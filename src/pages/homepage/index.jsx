@@ -13,7 +13,7 @@ function Homepage() {
   const navigate = useNavigate();
 
   const autoplayOptions = {
-    delay: 15000,
+    delay: 4000,
     rootNode: (emblaRoot) => emblaRoot.parentElement,
   };
 
@@ -27,21 +27,21 @@ function Homepage() {
         className="w-full h-[530px] overflow-hidden  relative"
         ref={emblaRef}
       >
-        <div className="flex h-full w-full object-cover">
+        <div className="flex h-full w-full ">
           <img
             src={homeBg}
             alt="homeBg"
-            className="h-full w-full object-cover"
+            className="object-cover min-w-full min-h-full"
           />
           <img
             src={homeBg2}
             alt="homeBg"
-            className="h-full w-full object-cover"
+            className=" object-cover min-w-full min-h-full"
           />
           <img
             src={homeBg3}
             alt="homeBg"
-            className="h-full w-full object-cover"
+            className=" object-cover min-w-full min-h-full"
           />
         </div>
         <div className="absolute w-full h-full bg-black opacity-60 top-0"></div>

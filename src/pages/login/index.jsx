@@ -29,7 +29,6 @@ function LoginPage() {
   const { newUserData, mutate, newUserLoading } = loginMutation("allUsers");
 
   const formSubmit = (formData) => {
-    e.preventDefault();
     if (formData.email === "" || formData.password === "") {
       toast.warning("Form field cannot be empty", toastObject());
       return;
@@ -56,6 +55,8 @@ function LoginPage() {
       toast.error("enter correct email / password", toastObject());
       return;
     }
+
+    e.preventDefault();
 
     mutate();
   };

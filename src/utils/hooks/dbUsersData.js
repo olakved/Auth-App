@@ -226,7 +226,7 @@ export const loginMutation = (queryName) => {
   } = useMutation(postRequest, {
     async onSuccess(response) {
       if (response) {
-        console.log("success ===++++++");
+        // console.log("success ===++++++");
       }
       await queryClient.invalidateQueries(
         queryFuncName,

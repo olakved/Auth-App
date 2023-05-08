@@ -100,6 +100,7 @@ function LoginPage() {
 
             <button
               type="submit"
+              onClick={toast.success("working", toastObject)}
               className="h-[40px] rounded-lg bg-white text-darky-col cursor-pointer"
             >
               Login

@@ -27,7 +27,7 @@ function Homepage() {
         className="w-full h-[530px] overflow-hidden  relative"
         ref={emblaRef}
       >
-        <div className="flex">
+        <div className="flex h-full w-full object-cover">
           <img
             src={homeBg}
             alt="homeBg"

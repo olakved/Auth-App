@@ -100,7 +100,7 @@ function LoginPage() {
 
             <button
               type="submit"
-              className="h-[40px] rounded-lg bg-white hover:bg-darky-col hover:text-white"
+              className="h-[40px] rounded-lg bg-white text-darky-col"
             >
               Login
             </button>

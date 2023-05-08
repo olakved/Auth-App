@@ -20,7 +20,7 @@ export const dbUsersData = () => {
 };
 
 export const getUsersData = (userNumber) => {
-  const { isLoading, isError, data } = useQuery(["allUsers"], () =>
+  const { isLoading, isError, data } = useQuery(["user"], () =>
     getRequest({ url: `http://localhost:3001/users/${userNumber}` })
   );
   // console.log(data);
@@ -74,6 +74,7 @@ export const patchMutation = (queryName) => {
   } = useMutation(patchRequest, {
     async onSuccess(response) {
       if (response) {
+        window.location.reload();
         toast.success("succesful", toastObject());
         // console.log(response, "111111111111111111");
       }

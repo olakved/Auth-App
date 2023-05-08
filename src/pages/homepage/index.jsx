@@ -1,17 +1,49 @@
 import React, { useContext } from "react";
 import homeBg from "../../assets/homeBg.jpg";
+import homeBg2 from "../../assets/homeBg2.jpg";
+import homeBg3 from "../../assets/homeBg3.jpg";
 import salesman from "../../assets/salesman.jpg";
 import { useNavigate } from "react-router-dom";
 import securityUser from "../../assets/securityUser.png";
 import { offerTypes, securityTypes } from "./mockData";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 function Homepage() {
   const navigate = useNavigate();
 
+  const autoplayOptions = {
+    delay: 15000,
+    rootNode: (emblaRoot) => emblaRoot.parentElement,
+  };
+
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    Autoplay(autoplayOptions),
+  ]);
+
   return (
     <div className="w-full pt-[75px]">
-      <div className="w-full h-[530px]  relative">
-        <img src={homeBg} alt="homeBg" className="h-full w-full object-cover" />
+      <div
+        className="w-full h-[530px] overflow-hidden  relative"
+        ref={emblaRef}
+      >
+        <div className="flex">
+          <img
+            src={homeBg}
+            alt="homeBg"
+            className="h-full w-full object-cover"
+          />
+          <img
+            src={homeBg2}
+            alt="homeBg"
+            className="h-full w-full object-cover"
+          />
+          <img
+            src={homeBg3}
+            alt="homeBg"
+            className="h-full w-full object-cover"
+          />
+        </div>
         <div className="absolute w-full h-full bg-black opacity-60 top-0"></div>
         <div className="absolute left-0 top-0 text-white mt-[60px] sm:mt-[100px] ml-[40px] p-5 w-[500px] sm:w-full sm:ml-0">
           <h1 className="text-[50px] leading-none sm:text-[35px] ">

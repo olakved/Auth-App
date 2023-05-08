@@ -4,7 +4,11 @@ import profileImg from "../../assets/profileImg.jpg";
 import profileBanner from "../../assets/profileBanner.png";
 import { UserContext } from "../../context/userContext";
 import { useForm } from "react-hook-form";
-import { dbUsersData, patchMutation } from "../../utils/hooks/dbUsersData";
+import {
+  dbUsersData,
+  getUsersData,
+  patchMutation,
+} from "../../utils/hooks/dbUsersData";
 import { toast } from "react-toastify";
 import { postingUrl, updateUrl } from "../../utils/url";
 import { toastObject } from "../../utils/helper";
@@ -14,8 +18,9 @@ import { UPDATE_USER_URL } from "../../utils/apiUrl";
 function ProfilePage() {
   const { userData } = useContext(UserContext);
   const [isEditMode, setEditMode] = useState(false);
+  const { data } = getUsersData(userData?.id);
 
-  // console.log(userData);
+  console.log(data);
 
   const handleCancel = () => {
     setEditMode(false);
@@ -37,9 +42,6 @@ function ProfilePage() {
     workAddress: "",
   });
 
-  const { isLoading, error, data } = dbUsersData();
-  // console.log(data);
-
   const { patchUserData, mutate, patchUserLoading } = patchMutation("allUsers");
 
   const submitForm = (formData) => {
@@ -53,23 +55,7 @@ function ProfilePage() {
       return;
     }
 
-    const findObject = data.some((objectData) => objectData.id === formData.id);
-
-    if (findObject === true) {
-      toast.error("User details already exist", toastObject());
-      return;
-    }
-
-    // if (userData?.id === ) {
-    //   return;
-    // }
-
-    const userObject = {
-      id: userData?.id,
-      ...formData,
-    };
-
-    mutate({ url: UPDATE_USER_URL(userObject.id), data: userObject });
+    mutate({ url: UPDATE_USER_URL(userData?.id), data: formData });
     // console.log(formData);
   };
 
@@ -181,14 +167,14 @@ function ProfilePage() {
                     name="firstName"
                     disabled
                     // value={}
-                    defaultValue={userData?.firstName}
+                    defaultValue={data?.data?.firstName}
                     autoComplete="off"
                     className="border-2 border-darky-col outline-none rounded-md py-2 sm:py-1 px-5 w-full mb-4"
                   />
                   <input
                     type="text"
                     placeholder="Last name"
-                    defaultValue={userData?.lastName}
+                    defaultValue={data?.data?.lastName}
                     disabled
                     name="lastName"
                     autoComplete="off"
@@ -199,7 +185,7 @@ function ProfilePage() {
                 <input
                   type="text"
                   placeholder="Username"
-                  defaultValue={userData?.username}
+                  defaultValue={data?.data?.username}
                   disabled
                   name="username"
                   autoComplete="off"
@@ -209,7 +195,7 @@ function ProfilePage() {
                 <input
                   type="email"
                   placeholder="Email"
-                  defaultValue={userData?.email}
+                  defaultValue={data?.data?.email}
                   name="email"
                   disabled
                   autoComplete="off"
@@ -219,7 +205,7 @@ function ProfilePage() {
                 <input
                   type="text"
                   placeholder="Phone"
-                  defaultValue={userData?.phone}
+                  defaultValue={data?.data?.phone}
                   name="phone"
                   disabled
                   autoComplete="off"
@@ -231,7 +217,7 @@ function ProfilePage() {
                     <input
                       type="textarea"
                       placeholder="occupation"
-                      defaultValue={userData?.occupation}
+                      defaultValue={data?.data?.occupation}
                       name="occupation"
                       disabled
                       autoComplete="off"
@@ -243,7 +229,7 @@ function ProfilePage() {
                     <input
                       type="text"
                       placeholder="Job Title"
-                      defaultValue={userData?.jobTitle}
+                      defaultValue={data?.data?.jobTitle}
                       name="jobTitle"
                       disabled
                       autoComplete="off"
@@ -257,7 +243,7 @@ function ProfilePage() {
                     <input
                       type="text"
                       placeholder="Home Address"
-                      defaultValue={userData?.homeAddress}
+                      defaultValue={data?.data?.homeAddress}
                       name="homeAddress"
                       disabled
                       autoComplete="off"
@@ -269,7 +255,7 @@ function ProfilePage() {
                     <input
                       type="text"
                       placeholder="Work Address"
-                      defaultValue={userData?.workAddress}
+                      defaultValue={data?.data?.workAddress}
                       name="workAddress"
                       disabled
                       autoComplete="off"

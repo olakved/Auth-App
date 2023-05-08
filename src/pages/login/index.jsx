@@ -71,10 +71,7 @@ function LoginPage() {
           <p className="text-center text-white mb-[10px]">
             login to your account
           </p>
-          <form
-            className="px-[10px] flex flex-col justify-center"
-            onSubmit={handleSubmit(formSubmit)}
-          >
+          <form className="px-[10px] flex flex-col justify-center">
             <div className="h-[40px] bg-white rounded-lg mb-[20px] flex items-center px-[10px] ">
               <img src={email} alt="" className="w-5 h-5" />
               <input
@@ -97,8 +94,8 @@ function LoginPage() {
                 className="h-full w-full px-[15px] outline-none bg-transparent"
               />
             </div>
-
             <button
+              onClick={handleSubmit(formSubmit)}
               type="submit"
               className="h-[40px] rounded-lg bg-white text-darky-col cursor-pointer"
             >

@@ -31,7 +31,7 @@ function AppLayout() {
                   className="h-[50px] w-[50px] md:h-[20px] md:w-[20px] bg-white absolute cursor-pointer  invisible md:visible"
                 />
               </span>
-              <span className="mr-3 ml-8">
+              <span className="mr-3 ml-8 sm:ml-3">
                 <img
                   src={logo}
                   alt="logo"
@@ -43,7 +43,7 @@ function AppLayout() {
                 onClick={() => navigate("/")}
                 className="text-light-col sm:text-[20px]"
               >
-                AUTH
+                KOLUBO
               </span>
             </div>
             <div className="mr-[50px] md:mr-[40px]">
@@ -95,7 +95,7 @@ function AppLayout() {
               }  px-[10px] mt-[40px] sm:mt-[10px]`}
             >
               <div className=" rounded-b-lg">
-                <p className="bg-light-col text-[12px] py-2 px-1  sm:text-center mb-[20px] text-white">
+                <p className="bg-light-col text-[12px] py-2 px-1 w-[100px]  sm:text-center mb-[20px] text-white rounded-md">
                   <span>{userData?.firstName} </span>
                   <span>{userData?.lastName}</span>
                 </p>

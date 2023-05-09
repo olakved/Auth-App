@@ -49,7 +49,9 @@ function Homepage() {
           <h1 className="text-[50px] leading-none sm:text-[35px] ">
             Introducing
           </h1>
-          <h1 className="  leading-tight text-[80px] sm:text-[55px] ">Auth</h1>
+          <h1 className="  leading-tight text-[80px] sm:text-[55px] ">
+            Kolubo
+          </h1>
           <p className="text-[18px]  mt-[10px] sm:text-[16px] ">
             We offer a range of security services, including vulnerability
             assessments, penetration testing, code review, security training,

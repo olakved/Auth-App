@@ -27,7 +27,7 @@ function Header() {
           <span className="mr-3 ml-8">
             <img src={logo} alt="logo" className="rounded-full w-10 h-10" />
           </span>
-          <span className="text-light-col">KOLUBO</span>
+          <span className="text-light-col">Kolubo</span>
         </div>
         <div className={`${!open ? "md:hidden" : ""}`}>
           <ul

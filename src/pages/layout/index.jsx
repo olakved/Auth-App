@@ -43,7 +43,7 @@ function AppLayout() {
                 onClick={() => navigate("/")}
                 className="text-light-col sm:text-[20px]"
               >
-                KOLUBO
+                Kolubo
               </span>
             </div>
             <div className="mr-[50px] md:mr-[40px]">

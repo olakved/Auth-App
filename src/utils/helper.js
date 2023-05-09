@@ -19,3 +19,13 @@ export const toastObject = () => {
   };
   return toastConfig;
 };
+
+export const initialName = (obj) => {
+  const firstString = obj?.firstName.split(" ");
+  const secondString = obj?.lastName.split(" ");
+  const initialA = firstString[0]?.substring(0, 1)?.toUpperCase();
+  const initialB = secondString[0]?.substring(0, 1)?.toUpperCase();
+  const profileInitials = `${initialA}${initialB}`;
+
+  return profileInitials;
+};

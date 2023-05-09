@@ -4,13 +4,16 @@ import menuIcon from "../../assets/menuIcon.png";
 import logo from "../../assets/logo.png";
 import user from "../../assets/user.png";
 import { UserContext } from "../../context/userContext";
+import { initialName } from "../../utils/helper";
 // import DashHeader from "../../components/dashHeader/index";
 
 function AppLayout() {
   const [openUser, setOpenUser] = useState(false);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const { logout } = useContext(UserContext);
+  const { logout, userData } = useContext(UserContext);
+
+  const shortenName = initialName(userData);
 
   return (
     <div className="w-full">
@@ -19,10 +22,7 @@ function AppLayout() {
       <div>
         <div className="shadow-md  w-full fixed top-0 left-0 z-50">
           <div className="flex justify-between items-center bg-white py-4 md:px-[20px] px-7 ">
-            <div
-              onClick={() => navigate("/")}
-              className="font-bold text-2xl cursor-pointer flex items-center text-dark-green"
-            >
+            <div className="font-bold text-2xl cursor-pointer flex items-center text-dark-green">
               <span className="md:mr-[50px] flex items-center">
                 <img
                   src={menuIcon}
@@ -35,18 +35,30 @@ function AppLayout() {
                 <img
                   src={logo}
                   alt="logo"
+                  onClick={() => navigate("/")}
                   className="rounded-full w-10 h-10 sm:h-[30px] sm:w-[30px]"
                 />
               </span>
-              <span className="text-light-col sm:text-[20px]">AUTH</span>
+              <span
+                onClick={() => navigate("/")}
+                className="text-light-col sm:text-[20px]"
+              >
+                AUTH
+              </span>
             </div>
             <div className="mr-[50px] md:mr-[40px]">
-              <img
+              {/* <img
                 src={user}
                 alt=""
                 className="w-5 h-5 cursor-pointer"
                 onClick={() => setOpenUser(!openUser)}
-              />
+              /> */}
+              <p
+                className=" cursor-pointer bg-light-col rounded-full text-white p-[2px] text-[10px]"
+                onClick={() => setOpenUser(!openUser)}
+              >
+                {shortenName}
+              </p>
               <div
                 className={`${
                   !openUser ? "hidden" : ""
@@ -83,10 +95,24 @@ function AppLayout() {
               }  px-[10px] mt-[40px] sm:mt-[10px]`}
             >
               <div className=" rounded-b-lg">
+                <p className="bg-light-col text-[12px] py-2 px-1  sm:text-center mb-[20px] text-white">
+                  <span>{userData?.firstName} </span>
+                  <span>{userData?.lastName}</span>
+                </p>
                 <p
                   onClick={() => {
                     {
-                      navigate("/profile") ? false : setOpen(!open);
+                      navigate("/dashboard") ? false : setOpen(!open);
+                    }
+                  }}
+                  className="py-[8px] px-1 text-darky-col bg-white mb-[5px] cursor-pointer hover:bg-slate-100 hover:border-l-2 border-light-col"
+                >
+                  Dashboard
+                </p>
+                <p
+                  onClick={() => {
+                    {
+                      navigate("profile") ? false : setOpen(!open);
                     }
                   }}
                   className="py-[8px] px-1 text-darky-col bg-white mb-[5px] cursor-pointer hover:bg-slate-100 hover:border-l-2 border-light-col"
@@ -106,7 +132,7 @@ function AppLayout() {
                 <p
                   onClick={() => {
                     {
-                      navigate("/profile") ? false : setOpen(!open);
+                      navigate("profile") ? false : setOpen(!open);
                     }
                   }}
                   className="py-[8px] px-1 text-darky-col bg-white mb-[5px] cursor-pointer hover:bg-slate-100 hover:border-l-2 border-light-col"

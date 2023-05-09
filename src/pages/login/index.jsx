@@ -28,7 +28,7 @@ function LoginPage() {
 
   const { newUserData, mutate, newUserLoading } = loginMutation("allUsers");
 
-  const formSubmit = (formData, e) => {
+  const formSubmit = (formData) => {
     if (formData.email === "" || formData.password === "") {
       toast.warning("Form field cannot be empty", toastObject());
       return;
@@ -47,7 +47,7 @@ function LoginPage() {
 
     if (findObject === true) {
       toast.success("login successful", toastObject());
-      navigate("/profile");
+      navigate("/dashboard");
       window.location.reload();
       return;
     }
@@ -56,7 +56,6 @@ function LoginPage() {
       return;
     }
 
-    e.preventDefault();
     mutate();
   };
 

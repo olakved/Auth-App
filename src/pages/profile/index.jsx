@@ -20,7 +20,7 @@ function ProfilePage() {
   const [isEditMode, setEditMode] = useState(false);
   const { data } = getUsersData(userData?.id);
 
-  console.log(data);
+  // console.log(data);
 
   const handleCancel = () => {
     setEditMode(false);

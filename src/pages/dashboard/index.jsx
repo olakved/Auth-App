@@ -96,7 +96,7 @@ function DashboardPage() {
               Sales by category
             </p>
             <div className="mt-[15px] md:h-full">
-              <DonutChart />
+              <LineChart />
             </div>
             {/* <div className="text-darky-col"></div> */}
           </div>
@@ -106,7 +106,7 @@ function DashboardPage() {
               Sales by category
             </p>
             <div className="mt-[15px]">
-              <DonutChart />
+              <LineChart />
             </div>
             <div className="text-darky-col"></div>
           </div>

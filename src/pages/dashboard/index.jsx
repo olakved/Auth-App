@@ -98,7 +98,7 @@ function DashboardPage() {
             <div className="mt-[15px] md:h-full">
               <DonutChart />
             </div>
-            <div className="text-darky-col"></div>
+            {/* <div className="text-darky-col"></div> */}
           </div>
           {/* row 2 */}
           <div className=" flex flex-col w-full justify-center items-center rounded-md shadow-md bg-white py-[10px] mb-[20px]">

@@ -19,6 +19,9 @@ function DonutChart() {
     series: avgTemp,
     options: {
       labels: label,
+      legend: {
+        position: "bottom",
+      },
     },
   };
 

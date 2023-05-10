@@ -78,7 +78,7 @@ function DashboardPage() {
                 </div>
               </div>
               <div className="">
-                <DonutChart />
+                <Barchart />
               </div>
             </div>
           </div>

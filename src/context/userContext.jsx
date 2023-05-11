@@ -23,7 +23,7 @@ export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(user);
 
   const navigate = useNavigate();
-  //   console.log(userData.name);
+  // console.log(userData.name);
 
   const logout = () => {
     localStorage.clear();

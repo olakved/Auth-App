@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import homeBg from "../../assets/homeBg.jpg";
 import email from "../../assets/email.png";
 import password from "../../assets/password.png";
@@ -9,9 +9,14 @@ import { useNavigate } from "react-router-dom";
 import { dbUsersData, loginMutation } from "../../utils/hooks/dbUsersData";
 import { toastObject } from "../../utils/helper";
 import { toast } from "react-toastify";
-import { pushToLocalStorage } from "../../context/userContext";
+import { UserContext, pushToLocalStorage } from "../../context/userContext";
+import { AllUserContext } from "../../context/allUsers";
 
 function LoginPage() {
+  const { fetchData } = useContext(AllUserContext);
+
+  // console.log(userData);
+
   const {
     register,
     handleSubmit,

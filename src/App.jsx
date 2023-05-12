@@ -12,6 +12,7 @@ import CoinPage from "./pages/coins";
 import CoinDetails from "./components/common/coin";
 import { PrivateRoute } from "./utils/hooks/privateRoute";
 import DashboardPage from "./pages/dashboard";
+import ContactPage from "./pages/contactUs";
 
 function App() {
   return (
@@ -22,6 +23,14 @@ function App() {
           element={
             <LayoutWrapper>
               <Homepage />
+            </LayoutWrapper>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <LayoutWrapper>
+              <ContactPage />
             </LayoutWrapper>
           }
         />

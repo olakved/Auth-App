@@ -13,8 +13,6 @@ import { UserContext, pushToLocalStorage } from "../../context/userContext";
 import { AllUserContext } from "../../context/allUsers";
 
 function LoginPage() {
-  const { fetchData } = useContext(AllUserContext);
-
   // console.log(userData);
 
   const {

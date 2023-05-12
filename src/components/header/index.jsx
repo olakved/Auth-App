@@ -8,7 +8,7 @@ import { UserContext } from "../../context/userContext";
 function Header() {
   const links = [
     { name: "HOME", link: "/" },
-    { name: "BLOG", link: "/blog" },
+    { name: "CONTACT", link: "/contact" },
     { name: "ABOUT", link: "/about" },
     { name: "FAQ", link: "/faq" },
   ];

@@ -27,7 +27,7 @@ function Homepage() {
   // console.log(open);
 
   const autoplayOptions = {
-    delay: 4000,
+    delay: 15000,
     rootNode: (emblaRoot) => emblaRoot.parentElement,
   };
 

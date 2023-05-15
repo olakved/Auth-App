@@ -9,6 +9,7 @@ import { offerTypes, securityTypes } from "./mockData";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Modal from "../../components/modal";
+import NewsSect from "./news";
 
 function Homepage() {
   const navigate = useNavigate();
@@ -107,7 +108,10 @@ function Homepage() {
             </div>
           ))}
         </div>
-        <div className="w-full bg-darky-col mt-[70px]">
+        <div>
+          <NewsSect />
+        </div>
+        <div className="w-full bg-darky-col mt-[0px]">
           <h1 className="font-bold text-center text-white text-[40px] sm:text-[25px]">
             What We Offer
           </h1>

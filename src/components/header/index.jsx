@@ -24,7 +24,7 @@ function Header() {
     <div className="shadow-md  w-full fixed top-0 left-0 z-50">
       <div className="flex justify-between items-center bg-[white] py-4 md:px-10 pr-[95px] md:flex-col">
         <div className="font-bold text-2xl cursor-pointer flex items-center sm:mr-[40px]">
-          <span className="mr-3 ml-8">
+          <span className="mr-3 ml-8" onClick={() => navigate("/")}>
             <img src={logo} alt="logo" className="rounded-full w-10 h-10" />
           </span>
           <span className="text-light-col">Kolubo</span>

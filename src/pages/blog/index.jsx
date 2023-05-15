@@ -10,13 +10,14 @@ function BlogPage() {
   const { isLoading, error, data } = useQuery(["blopposts"], () =>
     axios
       .get(
-        "http://localhost:3001/news"
+        "https://db-kappa-nine.vercel.app/news"
+        // "http://localhost:3001/news"
         // "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=982bb4f800184deab23f0a93423b0aea"
       )
       .then((res) => res.data)
   );
 
-  console.log(data[0]?.articles);
+  // console.log(data);
 
   return (
     <div className="p-20 md:px-5">

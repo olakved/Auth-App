@@ -9,7 +9,7 @@ function Header() {
   const links = [
     { name: "HOME", link: "/" },
     { name: "CONTACT", link: "/contact" },
-    { name: "ABOUT", link: "/about" },
+    { name: "BLOG", link: "/blog" },
     { name: "FAQ", link: "/faq" },
   ];
 

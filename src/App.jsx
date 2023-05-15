@@ -13,6 +13,7 @@ import CoinDetails from "./components/common/coin";
 import { PrivateRoute } from "./utils/hooks/privateRoute";
 import DashboardPage from "./pages/dashboard";
 import ContactPage from "./pages/contactUs";
+import BlogPage from "./pages/blog";
 
 function App() {
   return (
@@ -31,6 +32,14 @@ function App() {
           element={
             <LayoutWrapper>
               <ContactPage />
+            </LayoutWrapper>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <LayoutWrapper>
+              <BlogPage />
             </LayoutWrapper>
           }
         />

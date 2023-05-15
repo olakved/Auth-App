@@ -1,8 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import contactBanner from "../../assets/contactBanner.jpg";
 import email from "../../assets/email.png";
+import emailjs from "@emailjs/browser";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { toastObject } from "../../utils/helper";
 
 function ContactPage() {
+  const [loading, setLoading] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm({
+    contactEmail: "",
+    contactFirstName: "",
+    contactLastName: "",
+    contactPhone: "",
+    contactTitle: "",
+    contactMessage: "",
+  });
+
+  const submitForm = async (valueInput) => {
+    setLoading(true);
+    if (
+      valueInput.contactEmail === "" ||
+      valueInput.contactPhone === "" ||
+      valueInput.contactFirstName === "" ||
+      valueInput.contactLastName === "" ||
+      valueInput.contactTitle === "" ||
+      valueInput.contactMessage === ""
+    ) {
+      toast.error("The input field must be filled", toastObject());
+
+      return;
+    }
+    emailjs
+      .send(
+        "service_xmuus3f",
+        "template_3955dtk",
+        valueInput,
+        "jO5YY-dqaytIyuHBe"
+      )
+      .then(
+        (result) => {
+          toast.success("Thank you for reaching out to us.", toastObject());
+        },
+        (error) => {
+          toast.success("error, please try again.", toastObject());
+        }
+      );
+
+    reset();
+    setLoading(false);
+  };
+
   return (
     <div>
       <div className="w-full h-[400px] overflow-hidden relative">
@@ -22,16 +77,21 @@ function ContactPage() {
             Let’s make the <span className="text-darky-col">world</span> better,
             together
           </p>
-          <form className="">
+          <p className="text-red-300 text-[18px] mb-[20px]">
+            Fill form, our team responds immediately
+          </p>
+          <form className="" onSubmit={handleSubmit(submitForm)}>
             <div className="flex sm:flex-col gap-[20px] mb-[20px]">
               <input
                 type="text"
                 placeholder="First Name"
+                {...register("contactFirstName")}
                 className="px-[15px] py-[8px] w-full border-gray-300 border-2 rounded-md outline-none focus:border-light-col"
               />
               <input
                 type="text"
                 placeholder="Last Name"
+                {...register("contactLastName")}
                 className="px-[15px] py-[8px] w-full border-gray-300 border-2 rounded-md outline-none focus:border-light-col"
               />
             </div>
@@ -39,11 +99,13 @@ function ContactPage() {
               <input
                 type="email"
                 placeholder="Email*"
+                {...register("contactEmail")}
                 className="px-[15px] py-[8px] w-full border-gray-300 border-2 rounded-md outline-none focus:border-light-col"
               />
               <input
                 type="text"
                 placeholder="Phone"
+                {...register("contactPhone")}
                 className="px-[15px] py-[8px] w-full border-gray-300 border-2 rounded-md outline-none focus:border-light-col"
               />
             </div>
@@ -51,10 +113,12 @@ function ContactPage() {
               <input
                 type="text"
                 placeholder="Message Title*"
+                {...register("contactTitle")}
                 className="px-[15px] py-[8px] w-full border-gray-300 border-2 rounded-md outline-none focus:border-light-col"
               />
               <textarea
                 placeholder="Tell us about it*"
+                {...register("contactMessage")}
                 rows="4"
                 className="mt-[20px] px-[15px]  py-2  h-[200px] w-full  border-gray-300 border-2 rounded-md outline-none focus:border-light-col"
               />

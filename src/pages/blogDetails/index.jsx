@@ -1,26 +1,25 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getRequest } from "../../../utils/apiCalls";
 import { useQuery } from "@tanstack/react-query";
-import logo from "../../../assets/logo.png";
-import DOMPurify from "dompurify";
+import logo from "../../assets/logo.png";
+import { getRequest } from "../../utils/apiCalls";
 
-function CoinDetails() {
-  const { id } = useParams();
-  const coinId = id;
+function BlogDetails() {
+  const { title } = useParams();
+  //   const blogTitle = title;
   const navigate = useNavigate();
 
-  // console.log(coinId);
+  //   console.log(blogTitle);
 
-  const { data, isLoading, isError } = useQuery(["coin"], () =>
+  const { data, isLoading, isError } = useQuery(["blog"], () =>
     getRequest({
-      url: `https://api.coingecko.com/api/v3/coins/${id}`,
+      url: `https://db-kappa-nine.vercel.app/news/${title}`,
     })
   );
 
-  const coinData = data?.data;
-  // console.log(coinData);
-  // console.log(data);
+  //   const blogdata = data[0]?.articles;
+  //   console.log(blogdata);
+  console.log(data, "gfbfgfhfjhfjfjj");
 
   return (
     <div className="py-[20px] md:py-[30px] px-[30px] md:px-[10px]">
@@ -33,10 +32,10 @@ function CoinDetails() {
         </p>
         <div className="flex items-center gap-2 font-bold">
           <img src={logo} alt="" className="w-[30px] h-[30px]" />
-          <p className="text-[20px]">Auth</p>
+          <p className="text-[20px]">Kolubo</p>
         </div>
       </div>
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <div className="w-[700px] sm:w-full shadow-md">
           <div className="w-full py-[15px] bg-darky-col shadow-md text-center font-bold text-white text-[40px] mb-[15px]">
             <p>{coinData?.name}</p>
@@ -207,9 +206,7 @@ function CoinDetails() {
             <h3 className="font-bold text-[25px] mb-[10px] text-darky-col">
               About
             </h3>
-            {/* <p className="sm:text-[14px]">
-              {coinData?.description ? coinData?.description?.en : ""}
-            </p> */}
+
             <p
               className="sm:text-[14px] leading-relaxed"
               dangerouslySetInnerHTML={{
@@ -220,9 +217,9 @@ function CoinDetails() {
             ></p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
 
-export default CoinDetails;
+export default BlogDetails;

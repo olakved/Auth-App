@@ -14,6 +14,8 @@ import { PrivateRoute } from "./utils/hooks/privateRoute";
 import DashboardPage from "./pages/dashboard";
 import ContactPage from "./pages/contactUs";
 import BlogPage from "./pages/blog";
+import NewsSect from "./pages/homepage/news";
+import BlogDetails from "./pages/blogDetails";
 
 function App() {
   return (
@@ -58,7 +60,8 @@ function App() {
           </Route>
         </Route>
 
-        {/* single coin route */}
+        {/* single  route */}
+        <Route path="/blog/:title" element={<BlogDetails />} />
         <Route path="coins/:id" element={<CoinDetails />} />
       </Routes>
     </>

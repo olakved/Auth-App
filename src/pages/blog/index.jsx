@@ -17,7 +17,7 @@ function BlogPage() {
       .then((res) => res.data)
   );
 
-  // console.log(data);
+  console.log(data);
 
   return (
     <div className="p-20 md:px-5">
@@ -57,8 +57,11 @@ function BlogPage() {
         <p>Error while fetching blog data.</p>
       ) : data ? (
         <div>
-          <div className="grid grid-cols-3 mt-5 gap-5 lg:grid-cols-2 lg:gap-2 lg:gap-y-6 md:grid-cols-2 md:gap-2 md:gap-y-6 sm:grid-cols-1">
-            {data[0]?.articles?.map((item, index) => (
+          <div
+            on
+            className="grid grid-cols-3 mt-5 gap-5 lg:grid-cols-2 lg:gap-2 lg:gap-y-6 md:grid-cols-2 md:gap-2 md:gap-y-6 sm:grid-cols-1"
+          >
+            {data?.map((item, index) => (
               <div key={index} className="">
                 <div className=" w-[350px] md:w-full  ">
                   <div className="h-[220px]">

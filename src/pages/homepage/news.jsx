@@ -36,7 +36,7 @@ function NewsSect() {
       ) : data ? (
         <div>
           <div className="grid grid-cols-3 mt-5 gap-5 lg:grid-cols-2 lg:gap-2 lg:gap-y-6 md:grid-cols-2 md:gap-2 md:gap-y-6 sm:grid-cols-1">
-            {data[0]?.articles?.slice(0, 3)?.map((item, index) => (
+            {data?.slice(0, 3)?.map((item, index) => (
               <div key={index} className="">
                 <div className=" w-[350px] md:w-full  ">
                   <div className="h-[220px]">

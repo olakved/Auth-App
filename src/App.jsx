@@ -45,6 +45,15 @@ function App() {
             </LayoutWrapper>
           }
         />
+        {/* Single News route */}
+        <Route
+          path="/blog/:id"
+          element={
+            <LayoutWrapper>
+              <BlogDetails />
+            </LayoutWrapper>
+          }
+        />
 
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -61,7 +70,6 @@ function App() {
         </Route>
 
         {/* single  route */}
-        <Route path="/blog/:title" element={<BlogDetails />} />
         <Route path="coins/:id" element={<CoinDetails />} />
       </Routes>
     </>

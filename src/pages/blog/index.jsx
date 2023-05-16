@@ -5,8 +5,11 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import blogBg from "../../assets/blogBg.jpg";
 import searchIcon from "../../assets/Search.png";
+import { useNavigate } from "react-router-dom";
 
 function BlogPage() {
+  const navigate = useNavigate();
+
   const { isLoading, error, data } = useQuery(["blopposts"], () =>
     axios
       .get(
@@ -59,10 +62,14 @@ function BlogPage() {
         <div>
           <div
             on
-            className="grid grid-cols-3 mt-5 gap-5 lg:grid-cols-2 lg:gap-2 lg:gap-y-6 md:grid-cols-2 md:gap-2 md:gap-y-6 sm:grid-cols-1"
+            className="grid grid-cols-3 mt-5 gap-5 lg:grid-cols-2 lg:gap-2 lg:gap-y-6 md:grid-cols-2 md:gap-2 md:gap-y-6 sm:grid-cols-1 cursor-pointer"
           >
             {data?.map((item, index) => (
-              <div key={index} className="">
+              <div
+                key={index}
+                className=""
+                onClick={() => navigate(`/blog/${item?.id}`)}
+              >
                 <div className=" w-[350px] md:w-full  ">
                   <div className="h-[220px]">
                     <img

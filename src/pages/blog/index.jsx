@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import blogImg from "../../assets/profileImg.jpg";
 import arrowUp from "../../assets/arrowUp.png";
 import axios from "axios";
@@ -6,6 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 import blogBg from "../../assets/blogBg.jpg";
 import searchIcon from "../../assets/Search.png";
 import { useNavigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+import Spinner from "../../components/common/spinner";
 
 function BlogPage() {
   const navigate = useNavigate();
@@ -20,7 +22,7 @@ function BlogPage() {
       .then((res) => res.data)
   );
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="p-20 md:px-5">
@@ -54,7 +56,10 @@ function BlogPage() {
       {isLoading ? (
         <div className="flex gap-4">
           <p className="animate-ping rounded-full h-4 w-4 bg-light-green font-extrabold  text-[30px]"></p>
-          <p className="font-bold ">loading...</p>
+          {/* <p className="font-bold ">loading...</p> */}
+          <p className="absolute top-[50%] bottom-[50%] left-[50%] right-[50%]">
+            <Spinner />
+          </p>
         </div>
       ) : error ? (
         <p>Error while fetching blog data.</p>

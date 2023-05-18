@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import logo from "../../assets/logo.png";
@@ -6,6 +6,7 @@ import blogBg from "../../assets/blogBg.jpg";
 import { getRequest } from "../../utils/apiCalls";
 import { CiCalendarDate, CiStopwatch } from "react-icons/ci";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import moment from "moment";
 
 function BlogDetails() {
   const { id } = useParams();
@@ -20,9 +21,11 @@ function BlogDetails() {
     })
   );
 
-  console.log(data);
+  // console.log(data);
 
   const news = data?.data;
+  // const post = data?.data?.content;
+  // console.log(post);
 
   return (
     <div className="py-[20px] md:py-[30px] px-[30px] md:px-[10px]">
@@ -39,7 +42,8 @@ function BlogDetails() {
           <p className="font-bold text-[30px] sm:text-[20px]">{news?.title}</p>
           <p className="mt-5 flex items-center">
             <span className="mr-8 sm:mr-[20px] flex items-center gap-[5px]">
-              <CiCalendarDate size={20} /> {news?.publishedAt}
+              <CiCalendarDate size={20} />{" "}
+              {moment(news?.publishedAt).startOf("hour").fromNow()}
             </span>
             <span className="flex items-center gap-[5px]">
               <CiStopwatch size={20} /> 2 mins read

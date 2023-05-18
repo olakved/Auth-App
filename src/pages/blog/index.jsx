@@ -8,6 +8,7 @@ import searchIcon from "../../assets/Search.png";
 import { useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import Spinner from "../../components/common/spinner";
+import moment from "moment/moment";
 
 function BlogPage() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function BlogPage() {
 
   return (
     <div className="p-20 md:px-5">
-      {/* <div className=" py-3 px-20 mb-8 md:px-5 sm:px-2">
+      <div className=" py-3 px-20 mb-8 md:px-5 sm:px-2">
         <div className="border-b-2 py-3 px-20 md:px-2 sm:px-2">
           <img
             src={searchIcon}
@@ -52,11 +53,10 @@ function BlogPage() {
             className="h-[400px] w-full object-cover sm:h-[250px]"
           />
         </div>
-      </div> */}
+      </div>
       {isLoading ? (
         <div className="flex gap-4">
           <p className="animate-ping rounded-full h-4 w-4 bg-light-green font-extrabold  text-[30px]"></p>
-          {/* <p className="font-bold ">loading...</p> */}
           <div className="absolute top-[50%] bottom-[50%] left-[50%] right-[50%]">
             <Spinner />
           </div>
@@ -90,7 +90,7 @@ function BlogPage() {
                     </span>
                     <span className="mr-2 font-bold ">.</span>
                     <span className="text-sm font-bold">
-                      {item?.publishedAt}
+                      {moment(item?.publishedAt).format("MMM Do YY")}
                     </span>
                   </p>
 

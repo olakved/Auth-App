@@ -16,6 +16,7 @@ import ContactPage from "./pages/contactUs";
 import BlogPage from "./pages/blog";
 import NewsSect from "./pages/homepage/news";
 import BlogDetails from "./pages/blogDetails";
+import FaqPage from "./pages/faq";
 
 function App() {
   return (
@@ -42,6 +43,14 @@ function App() {
           element={
             <LayoutWrapper>
               <BlogPage />
+            </LayoutWrapper>
+          }
+        />
+        <Route
+          path="/faq"
+          element={
+            <LayoutWrapper>
+              <FaqPage />
             </LayoutWrapper>
           }
         />

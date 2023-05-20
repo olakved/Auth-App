@@ -27,21 +27,19 @@ function BlogPage() {
 
   return (
     <div className="p-20 md:px-5">
-      <div className=" py-3 px-20 mb-8 md:px-5 sm:px-2">
-        <div className="border-b-2 py-3 px-20 md:px-2 sm:px-2">
-          <img
-            src={searchIcon}
-            alt=""
-            className="absolute py-2 px-10 sm:py-1 sm:px-5"
-          />
-          <input
-            type="search"
-            placeholder="Search our blog"
-            className="w-full py-1 px-20 text-xl rounded-full border-2 outline-none sm:text-sm sm:px-14 "
-          />
+      <div className=" py-3 px-20 mb-[60px] md:px-5 sm:px-2">
+        <div className="flex justify-center">
+          <div className="flex items-center gap-[20px] h-[45px] w-[600px] border-b-2 py-1 px-5 md:px-2 sm:px-2 rounded-md border-2 ">
+            <img src={searchIcon} alt="" className="sm:py-1 sm:px-5" />
+            <input
+              type="search"
+              placeholder="Search our blog"
+              className="w-full h-full text-[18px] outline-none "
+            />
+          </div>
         </div>
         <div>
-          <h1 className="font-medium text-4xl text-center mt-5 sm:text-2xl">
+          <h1 className="font-medium text-4xl text-center mt-5 sm:text-2xl text-darky-col">
             Writings from our team
           </h1>
           <p className="mt-3 mb-3 text-center">
@@ -95,7 +93,7 @@ function BlogPage() {
                   </p>
 
                   <div className="flex justify-between items-center mb-2">
-                    <p className="font-bold text-lg line-clamp-2">
+                    <p className="font-bold text-darky-col text-lg line-clamp-2">
                       {item?.title}
                     </p>
                     <img src={arrowUp} alt="" className="w-5 h-5" />
@@ -108,13 +106,13 @@ function BlogPage() {
                     </p>
                   </div>
                   <div className="mt-3 flex gap-x-2">
-                    <p className="border-2 border-gray-800 rounded-lg px-2 text-[12px] font-bold">
+                    <p className="border-2 border-darky-col rounded-lg px-2 text-[12px] font-bold">
                       Product
                     </p>
-                    <p className="border-2 border-gray-800 rounded-lg px-2 text-[12px] font-bold">
+                    <p className="border-2 border-darky-col rounded-lg px-2 text-[12px] font-bold">
                       Research
                     </p>
-                    <p className="border-2 border-gray-800 rounded-lg px-2 text-[12px] font-bold">
+                    <p className="border-2 border-darky-col rounded-lg px-2 text-[12px] font-bold">
                       Frameworks
                     </p>
                   </div>

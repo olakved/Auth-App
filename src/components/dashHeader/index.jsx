@@ -103,7 +103,7 @@ function DashHeader() {
                 }
               }}
             >
-              Profile
+              Dash
             </p>
             <p
               className="px-[10px] py-[5px] cursor-pointer"

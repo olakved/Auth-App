@@ -64,7 +64,7 @@ function AppLayout() {
                   !openUser ? "hidden" : ""
                 } absolute mt-5  p-[3px] shadow-lg text-[16px] md:text-[12px] bg-white`}
               >
-                <p
+                {/* <p
                   className="px-[10px] py-[5px] cursor-pointer"
                   onClick={() => {
                     {
@@ -73,7 +73,7 @@ function AppLayout() {
                   }}
                 >
                   Profile
-                </p>
+                </p> */}
                 <p
                   className="px-[10px] py-[5px] cursor-pointer"
                   onClick={logout}

@@ -25,8 +25,11 @@ export const dbUsersData = () => {
 
 export const getUsersData = (userNumber) => {
   const { isLoading, isError, data } = useQuery(["user"], () =>
-    getRequest({ url: `http://localhost:3001/users/${userNumber}` })
+    getRequest({ url: `https://db-kappa-nine.vercel.app/users/${userNumber}` })
   );
+  // const { isLoading, isError, data } = useQuery(["user"], () =>
+  //   getRequest({ url: `http://localhost:3001/users/${userNumber}` })
+  // );
   // console.log(data);
   return { isLoading, isError, data };
 };

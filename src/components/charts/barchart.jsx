@@ -24,7 +24,7 @@ function Barchart() {
 
   const { data, loading, isError } = useQuery(["temp"], () =>
     getRequest({
-      url: `http://localhost:3001/temperature`,
+      url: `https://db-kappa-nine.vercel.app/temperature`,
     })
   );
 

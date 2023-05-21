@@ -99,7 +99,7 @@ function DashHeader() {
               className="px-[10px] py-[5px] cursor-pointer"
               onClick={() => {
                 {
-                  navigate("/profile") ? false : setOpen(!openUser);
+                  navigate("/dashboard") ? false : setOpen(!openUser);
                 }
               }}
             >

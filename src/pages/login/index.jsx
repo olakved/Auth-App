@@ -74,6 +74,19 @@ function LoginPage() {
           <p className="text-center text-white mb-[10px]">
             login to your account
           </p>
+          <div className="flex justify-center px-2 text-[12px]">
+            <div className="flex flex-col  mb-[15px]">
+              <p className="text-center text-white mb-[10px] bg-red-300">
+                Use this TEST login details
+              </p>
+              <p className="text-center text-white mb-[10px]">
+                EMAIL: userone@gmail.com
+              </p>
+              <p className="text-center text-white mb-[10px]">
+                PASSWORD: testpwd
+              </p>
+            </div>
+          </div>
           <form
             className="px-[10px] flex flex-col justify-center"
             onSubmit={handleSubmit(formSubmit)}

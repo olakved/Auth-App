@@ -84,7 +84,7 @@ function ProfilePage() {
                     onClick={handleCancel}
                     className="px-4 py-[8px] rounded-[8px] cursor-pointer text-white bg-[red]"
                   >
-                    Cancle
+                    Cancel
                   </button>
                   <button
                     onClick={handleSubmit(submitForm)}

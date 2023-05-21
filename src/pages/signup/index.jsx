@@ -30,7 +30,7 @@ function SignupPage() {
   });
 
   const { isLoading, error, data } = dbUsersData();
-  // console.log(data);
+  console.log(data);
 
   const { newUserData, mutate, newUserLoading } = signupMutation("allUsers");
 

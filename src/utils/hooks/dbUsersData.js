@@ -208,6 +208,7 @@ export const signupMutation = (queryName) => {
           toastObject()
         );
         navigate("/login");
+        window.location.reload();
       }
       await queryClient.invalidateQueries(
         queryFuncName,
@@ -216,6 +217,7 @@ export const signupMutation = (queryName) => {
       );
     },
     onError(error) {
+      toast.error(error, toastObject());
       console.log(error);
     },
   });

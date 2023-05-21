@@ -25,6 +25,22 @@ function BlogPage() {
 
   // console.log(data);
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  const items = data;
+
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const performSearch = () => {
+    const results = items.filter((item) =>
+      item.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(results);
+  };
+
   return (
     <div className="p-20 md:px-5">
       <div className=" py-3 px-20 mb-[60px] md:px-5 sm:px-2">

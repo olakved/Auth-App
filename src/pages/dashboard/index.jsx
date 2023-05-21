@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import chart from "../../assets/chart.png";
 import Barchart from "../../components/charts/barchart";
 import LineChart from "../../components/charts/lineChart";
 import DonutChart from "../../components/charts/donutChart";
+import { UserContext } from "../../context/userContext";
 
 function DashboardPage() {
+  const { userData } = useContext(UserContext);
+  console.log(userData);
+
   return (
     <div className="w-full">
       <div>
-        <p>Welcome, Lekan Michael!</p>
+        <p>
+          Welcome, {userData?.firstName} {userData?.lastName}
+        </p>
       </div>
       <div className="w-full  flex md:flex-col justify-between gap-[20px] p-[20px]">
         {/* side A */}

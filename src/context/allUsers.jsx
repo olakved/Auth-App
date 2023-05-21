@@ -7,7 +7,8 @@ export const AllUserContext = createContext({});
 export const AllUserProvider = ({ children }) => {
   const { data, isLoading, isError } = useQuery(["allUserCont"], () =>
     getRequest({
-      url: "http://localhost:3001/users",
+      // url: "http://localhost:3001/users",
+      url: "https://db-kappa-nine.vercel.app/users",
     })
   );
 

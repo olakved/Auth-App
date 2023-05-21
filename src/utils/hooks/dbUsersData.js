@@ -14,8 +14,11 @@ import { useState } from "react";
 
 export const dbUsersData = () => {
   const { isLoading, isError, data } = useQuery(["allUsers"], () =>
-    axios.get("http://localhost:3001/users").then((res) => res.data)
+    axios.get("https://db-kappa-nine.vercel.app/users").then((res) => res.data)
   );
+  // const { isLoading, isError, data } = useQuery(["allUsers"], () =>
+  //   axios.get("http://localhost:3001/users").then((res) => res.data)
+  // );
   // console.log(data);
   return { isLoading, isError, data };
 };

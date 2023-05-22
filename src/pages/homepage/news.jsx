@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import blogBg from "../../assets/blogBg.jpg";
 import searchIcon from "../../assets/Search.png";
 import { useNavigate } from "react-router-dom";
+import moment from "moment/moment";
 
 function NewsSect() {
   const { isLoading, error, data } = useQuery(["blopposts"], () =>
@@ -56,7 +57,7 @@ function NewsSect() {
                     </span>
                     <span className="mr-2 font-bold ">.</span>
                     <span className="text-sm font-bold">
-                      {item?.publishedAt}
+                      {moment(item?.publishedAt).format("MMM Do YY")}
                     </span>
                   </p>
 

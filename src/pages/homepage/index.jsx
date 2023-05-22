@@ -10,6 +10,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Modal from "../../components/modal";
 import NewsSect from "./news";
+import moment from "moment/moment";
 
 function Homepage() {
   const navigate = useNavigate();

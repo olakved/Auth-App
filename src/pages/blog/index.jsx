@@ -9,9 +9,13 @@ import { useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import Spinner from "../../components/common/spinner";
 import moment from "moment/moment";
+import { debounce } from "lodash";
 
 function BlogPage() {
   const navigate = useNavigate();
+
+  // const [posts, setPosts] = useState([]);
+  const [searchTitle, setSearchTitle] = useState("");
 
   const { isLoading, error, data } = useQuery(["blopposts"], () =>
     axios
@@ -23,35 +27,48 @@ function BlogPage() {
       .then((res) => res.data)
   );
 
+  // setPosts(data);
+
+  const srcValue = data?.filter((value) => {
+    if (searchTitle === "") {
+      return value;
+    } else if (value.title.toLowerCase().includes(searchTitle.toLowerCase())) {
+      return value;
+    }
+  });
+
   // console.log(data);
-
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-
-  const items = data;
-
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const performSearch = () => {
-    const results = items.filter((item) =>
-      item.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setSearchResults(results);
-  };
 
   return (
     <div className="p-20 md:px-5">
       <div className=" py-3 px-20 mb-[60px] md:px-5 sm:px-2">
         <div className="flex justify-center">
           <div className="flex items-center gap-[20px] h-[45px] w-[600px] border-b-2 py-1 px-5 md:px-2 sm:px-2 rounded-md border-2 ">
-            <img src={searchIcon} alt="" className="sm:py-1 sm:px-5" />
+            <img src={searchIcon} alt="" className="sm:py-1 sm:px-3" />
             <input
-              type="search"
+              type="text"
+              onChange={(e) => setSearchTitle(e.target.value)}
               placeholder="Search our blog"
               className="w-full h-full text-[18px] outline-none "
             />
+            {/* <button>Search</button> */}
+          </div>
+        </div>
+        <div className="flex justify-center p-2 relative">
+          <div
+            className={`${
+              !searchTitle ? "invisible" : "visible"
+            } w-[600px] sm:w-full absolute z-40 bg-white h-[200px] overflow-hidden px-4 scrollbar-thin scrollbar-thumb-darky-col scrollbar-track-gray-100 scrollbar-track-rounded-md scrollbar-thumb-rounded-md overflow-y-auto`}
+          >
+            {srcValue?.map((item) => (
+              <h5
+                key={item.id}
+                className="py-2 border-b-[1px] cursor-pointer"
+                onClick={() => navigate(`/blog/${item?.id}`)}
+              >
+                {item.title}
+              </h5>
+            ))}
           </div>
         </div>
         <div>

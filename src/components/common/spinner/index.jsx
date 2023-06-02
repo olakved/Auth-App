@@ -6,7 +6,7 @@ function Spinner() {
 
   return (
     <div className="relative w-full h-full">
-      <div className="bg-[white] fixed inset-0 bg-opacity-20" />
+      <div className="bg-[white] fixed inset-0 bg-opacity-40" />
       <p className="absolute">
         <MoonLoader
           color={color}

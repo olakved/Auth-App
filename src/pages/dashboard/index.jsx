@@ -7,7 +7,7 @@ import { UserContext } from "../../context/userContext";
 
 function DashboardPage() {
   const { userData } = useContext(UserContext);
-  console.log(userData);
+  // console.log(userData);
 
   return (
     <div className="w-full">

@@ -45,6 +45,7 @@ function Barchart() {
     chart: { id: "bar-chart" },
     xaxis: {
       categories: "",
+      // categories: date,
     },
   };
 

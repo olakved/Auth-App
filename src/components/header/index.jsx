@@ -40,7 +40,7 @@ function Header() {
             {links.map((link) => (
               <li
                 key={link.name}
-                className="md:ml-8 text-l text-light-col hover:text-gray-400 duration-500 md:my-0 my-2"
+                className="md:ml-8 text-l text-light-col hover:text-gray-400 hover:border-b-2 border-light-col duration-200 md:my-0 my-2"
               >
                 <Link
                   to={link.link}

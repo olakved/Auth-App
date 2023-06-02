@@ -7,24 +7,30 @@ import blogBg from "../../assets/blogBg.jpg";
 import searchIcon from "../../assets/Search.png";
 import { useNavigate } from "react-router-dom";
 import moment from "moment/moment";
-import { HiOutlineNewspaper } from "react-icons/hi2";
+import { HiOutlineMegaphone } from "react-icons/hi2";
 
-function NewsSect() {
+function TrendingNews() {
   const { isLoading, error, data } = useQuery(["blopposts"], () =>
     axios.get("https://db-kappa-nine.vercel.app/news").then((res) => res.data)
   );
 
   // console.log(data);
 
+  const trendingData = data?.filter((obj) => {
+    return obj.trending === true;
+  });
+
+  //   console.log(trendingData);
+
   const navigate = useNavigate();
 
   return (
-    <div className="px-20 py-10 md:px-5">
+    <div className="px-20 py-[80px] md:px-5">
       <div className="flex justify-center">
-        <div className="w-[800px] md:w-full bg-light-col">
+        <div className="w-[800px] md:w-full bg-darky-col">
           <p className="font-semibold text-white flex justify-center items-center gap-[30px] text-center text-[30px] sm:text-[20px]">
-            <HiOutlineNewspaper size={30} />
-            Other News
+            <HiOutlineMegaphone size={30} />
+            Trending News
           </p>
         </div>
       </div>
@@ -39,7 +45,7 @@ function NewsSect() {
       ) : data ? (
         <div>
           <div className="grid grid-cols-3 mt-5 gap-5 lg:grid-cols-2 lg:gap-2 lg:gap-y-6 md:grid-cols-2 md:gap-2 md:gap-y-6 sm:grid-cols-1">
-            {data?.slice(0, 3)?.map((item, index) => (
+            {trendingData?.slice(0, 6)?.map((item, index) => (
               <div key={index} className="">
                 <div
                   className=" w-[350px] md:w-full cursor-pointer"
@@ -107,4 +113,4 @@ function NewsSect() {
   );
 }
 
-export default NewsSect;
+export default TrendingNews;

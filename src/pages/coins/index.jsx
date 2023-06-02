@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function CoinPage() {
   const { fetchData } = useContext(DataContext);
   const navigate = useNavigate();
-  console.log(fetchData);
+  // console.log(fetchData);
 
   return (
     <div className="px-[40px] md:px-0 mt-[20px]">

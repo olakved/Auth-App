@@ -11,6 +11,7 @@ function Header() {
     { name: "CONTACT", link: "/contact" },
     { name: "BLOG", link: "/blog" },
     { name: "FAQ", link: "/faq" },
+    { name: "USERS", link: "/userspage" },
   ];
 
   const [open, setOpen] = useState(false);

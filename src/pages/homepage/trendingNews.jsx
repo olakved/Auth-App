@@ -20,7 +20,7 @@ function TrendingNews() {
     return obj.trending === true;
   });
 
-  //   console.log(trendingData);
+  console.log(trendingData);
 
   const navigate = useNavigate();
 

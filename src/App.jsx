@@ -17,6 +17,7 @@ import BlogPage from "./pages/blog";
 import NewsSect from "./pages/homepage/news";
 import BlogDetails from "./pages/blogDetails";
 import FaqPage from "./pages/faq";
+import UsersPage from "./components/users";
 
 function App() {
   return (
@@ -43,6 +44,14 @@ function App() {
           element={
             <LayoutWrapper>
               <BlogPage />
+            </LayoutWrapper>
+          }
+        />
+        <Route
+          path="/userspage"
+          element={
+            <LayoutWrapper>
+              <UsersPage />
             </LayoutWrapper>
           }
         />

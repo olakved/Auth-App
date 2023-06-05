@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MoonLoader from "react-spinners/MoonLoader";
 
-function Spinner() {
+function SmallSpinner(size) {
   const [color, setColor] = useState("#0077d6");
 
   return (
@@ -10,7 +10,7 @@ function Spinner() {
       <p className="absolute">
         <MoonLoader
           color={color}
-          size={50}
+          size={30}
           aria-label="Loading Spinner"
           data-testid="loader"
         />
@@ -19,4 +19,4 @@ function Spinner() {
   );
 }
 
-export default Spinner;
+export default SmallSpinner;

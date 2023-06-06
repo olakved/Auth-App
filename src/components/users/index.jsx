@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import blogImg from "../../assets/profileImg.jpg";
 import arrowUp from "../../assets/arrowUp.png";
 import axios from "axios";
@@ -60,6 +60,14 @@ function UsersPage() {
     setSearchTitle(title);
   };
 
+  const testRef = useRef(null);
+  const scrollToElement = () => testRef.current.scrollIntoView();
+  useEffect(() => {
+    if (isFetching) {
+      scrollToElement();
+    }
+  }, [isFetching]);
+
   useEffect(() => {
     let filterData = userData?.data.length > 0 ? userData?.data : [];
     if (searchTitle !== "") {
@@ -89,7 +97,7 @@ function UsersPage() {
   console.log(dataArray);
 
   return (
-    <div className="p-20 md:px-5">
+    <div ref={testRef} className="p-20 md:px-5">
       <div className=" py-3 px-20 mb-[60px] md:px-5 sm:px-2">
         <div className="flex justify-center">
           <div className="flex items-center gap-[20px] sm:gap-[0px] h-[45px] w-[600px] border-b-2 py-1 px-5 md:px-2 sm:px-2 rounded-md border-2 ">
@@ -128,6 +136,17 @@ function UsersPage() {
             Theis page is intergarted to create and use "Paginated" Beer api
             data
           </p>
+        </div>
+
+        {/* Loader for when page is clicked pagination below*/}
+        <div>
+          {isFetching ? (
+            <div className="relative">
+              <div className="absolute top-[20%]  left-[50%] right-[50%]">
+                <SmallSpinner />
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
 
@@ -193,7 +212,7 @@ function UsersPage() {
                         ))}
                       </div>
                       <div className="flex justify-center items-center gap-[20px] mt-[25px]">
-                        <p className=" px-4 py-2 text-center md:text-[14px] sm:text-[12px] border-2 border-light-col rounded-md">
+                        <p className=" px-4 py-2 text-center md:text-[14px] sm:text-[12px] border-2 border-light-col hover:bg-light-col hover:text-white rounded-md">
                           PRODUCT DETAILS
                         </p>
                         <button className="px-4 text-white text-[25px] sm:text-[20px] py-2 bg-light-col rounded-md">
@@ -243,15 +262,15 @@ function UsersPage() {
                     <GrFormNext size={20} />
                   </button>
                 </div>
-                <div className="">
+                {/* <div className="">
                   {isFetching ? (
                     <div>
-                      <div className="absolute mb-[70px]  left-[50%] right-[50%]">
+                      <div className="absolute top-[20%]  left-[50%] right-[50%] bg-[red]">
                         <SmallSpinner />
                       </div>
                     </div>
                   ) : null}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

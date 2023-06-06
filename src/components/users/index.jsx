@@ -13,6 +13,7 @@ import { debounce } from "lodash";
 import useDebounce from "../../utils/hooks/debounce";
 import SmallSpinner from "../common/spinner/smallSpinner";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 function UsersPage() {
   const navigate = useNavigate();
@@ -63,16 +64,24 @@ function UsersPage() {
     let filterData = userData?.data.length > 0 ? userData?.data : [];
     if (searchTitle !== "") {
       filterData = userData?.data.filter((item) => {
-        return item?.name?.toLowerCase()?.includes(searchTitle?.toLowerCase());
+        return (
+          item?.name?.toLowerCase()?.includes(searchTitle?.toLowerCase()) ||
+          item?.first_brewed
+            ?.toLowerCase()
+            ?.includes(searchTitle?.toLowerCase()) ||
+          item?.food_pairing[0]
+            ?.toLowerCase()
+            ?.includes(searchTitle?.toLowerCase())
+        );
       });
     }
-    if (searchTitle !== "") {
-      filterData = userData?.data.filter((item) => {
-        return item?.first_brewed
-          ?.toLowerCase()
-          ?.includes(searchTitle?.toLowerCase());
-      });
-    }
+    // if (searchTitle !== "") {
+    //   filterData = userData?.data.filter((item) => {
+    //     return item?.first_brewed
+    //       ?.toLowerCase()
+    //       ?.includes(searchTitle?.toLowerCase());
+    //   });
+    // }
 
     setDataArray(filterData);
   }, [searchTitle]);
@@ -146,9 +155,53 @@ function UsersPage() {
                 </div>
               </div>
             ) : (
-              <div>
+              <div className="grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 gap-[20px]">
                 {userData?.data?.map((project) => (
-                  <p key={project.id}>{project.name}</p>
+                  <div
+                    key={project.id}
+                    className=" py-[20px] rounded-md shadow-lg max-w-[415px]"
+                  >
+                    <div className="flex justify-center">
+                      <div className="h-[180px]">
+                        <img
+                          src={project.image_url}
+                          alt=""
+                          className="h-full"
+                        />
+                      </div>
+                    </div>
+                    <div className="px-[20px]">
+                      <p className="text-center font-[500] text-[25px] md:text-[20px] mt-[20px] px-[50px] lg:px-[10px] md:px-3">
+                        {project.name}
+                      </p>
+                      <p className="text-center mt-[10px] font-[500] text-[18px] md:text-[16px]">
+                        {project?.tagline}
+                      </p>
+                      <p className="text-center mt-[20px] text-[18px] md:text-[14px]">
+                        {project?.brewers_tips}
+                      </p>
+                      {/* <div className="bg-darky-col">
+                        {project?.food_pairing.slice(0, 3)}
+                      </div> */}
+                      <div className="bg-white flex gap-[15px] justify-center flex-wrap mt-[20px]">
+                        {project?.ingredients?.malt.map((item, i) => (
+                          <div className="">
+                            <span className="mr-[10px] px-2 py-1 bg-slate-200 text-light-col font-[400] md:text-[14px] rounded-md shadow-md">
+                              {item.name}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="flex justify-center items-center gap-[20px] mt-[25px]">
+                        <p className=" px-4 py-2 text-center md:text-[14px] sm:text-[12px] border-2 border-light-col rounded-md">
+                          PRODUCT DETAILS
+                        </p>
+                        <button className="px-4 text-white text-[25px] sm:text-[20px] py-2 bg-light-col rounded-md">
+                          <AiOutlineShoppingCart />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
             )}

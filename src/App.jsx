@@ -17,7 +17,8 @@ import BlogPage from "./pages/blog";
 import NewsSect from "./pages/homepage/news";
 import BlogDetails from "./pages/blogDetails";
 import FaqPage from "./pages/faq";
-import UsersPage from "./components/users";
+import UsersPage from "./components/drinks";
+import DrinksPage from "./components/drinks";
 
 function App() {
   return (
@@ -48,10 +49,10 @@ function App() {
           }
         />
         <Route
-          path="/userspage"
+          path="/drinkspage"
           element={
             <LayoutWrapper>
-              <UsersPage />
+              <DrinksPage />
             </LayoutWrapper>
           }
         />

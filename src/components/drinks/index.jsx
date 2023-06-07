@@ -7,7 +7,7 @@ import blogBg from "../../assets/blogBg.jpg";
 import searchIcon from "../../assets/Search.png";
 import { useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
-import Spinner from "../../components/common/spinner";
+import Spinner from "../common/spinner";
 import moment from "moment/moment";
 import { debounce } from "lodash";
 import useDebounce from "../../utils/hooks/debounce";
@@ -15,7 +15,7 @@ import SmallSpinner from "../common/spinner/smallSpinner";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-function UsersPage() {
+function DrinksPage() {
   const navigate = useNavigate();
 
   const [searchTitle, setSearchTitle] = useState("");
@@ -60,6 +60,7 @@ function UsersPage() {
     setSearchTitle(title);
   };
 
+  // use effect for scroll to the top after fetching
   const testRef = useRef(null);
   const scrollToElement = () => testRef.current.scrollIntoView();
   useEffect(() => {
@@ -67,6 +68,8 @@ function UsersPage() {
       scrollToElement();
     }
   }, [isFetching]);
+
+  // use effect end
 
   useEffect(() => {
     let filterData = userData?.data.length > 0 ? userData?.data : [];
@@ -105,7 +108,7 @@ function UsersPage() {
             <input
               type="text"
               onChange={(e) => handleChangeValue(e.target.value)}
-              placeholder="Search name / date brewed e.g 09/2007"
+              placeholder="Search name / date brewed e.g 09/2007 / food pair"
               className="w-full h-full text-[18px] sm:text-[14px] outline-none "
             />
             {/* <button>Search</button> */}
@@ -280,4 +283,4 @@ function UsersPage() {
   );
 }
 
-export default UsersPage;
+export default DrinksPage;

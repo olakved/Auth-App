@@ -30,7 +30,7 @@ function DrinksDetails({ open, setOpen, drinkData }) {
               <div className="">
                 {/* <p className="text-white">Drinks Details Modal</p> */}
                 <div className="flex justify-between items-center gap-[20px] px-[20px] ">
-                  <div className="h-[180px] ml-[60px] w-[30%]">
+                  <div className="h-[180px] ml-[60px] sm:ml-[10px] w-[30%] sm:w-[45%]">
                     <img
                       src={singleDrink?.image_url}
                       alt=""

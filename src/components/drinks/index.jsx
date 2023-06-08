@@ -22,6 +22,7 @@ import SmallSpinner from "../common/spinner/smallSpinner";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import DrinksDetails from "./drinksDetails";
+import { getRequest } from "../../utils/apiCalls";
 
 function DrinksPage() {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ function DrinksPage() {
   const [dataArray, setDataArray] = useState([]);
   const [page, setPage] = useState(1);
   const [open, setOpen] = useState(false);
+  const [id, setId] = useState(1);
 
   const fetchProjects = (page) => {
     return axios.get(
@@ -50,6 +52,25 @@ function DrinksPage() {
     keepPreviousData: true,
   });
 
+  const fetchDrink = (id) => {
+    return axios.get(`https://api.punkapi.com/v2/beers/${id}`);
+  };
+
+  const {
+    isLoading,
+    isError,
+    error,
+    data: drink,
+    isPreviousData: isPreviousDrink,
+  } = useQuery({
+    queryKey: ["drink", id],
+    queryFn: () => fetchDrink(id),
+    keepPreviousData: true,
+  });
+
+  // console.log(drink?.data);
+  const drinkData = drink?.data[0];
+
   // console.log(userData?.data);
 
   //   const srcValue = userData?.data?.filter((value) => {
@@ -69,17 +90,23 @@ function DrinksPage() {
     setSearchTitle(title);
   };
 
-  const openModal = () => {
-    // console.log("Iam Clicking....", open);
-
-    if (open === false) {
-      setOpen(!open);
-      setModalId(drinkDataId);
+  const passId = (id) => {
+    if (!isPreviousDrink) {
+      setId(id);
     }
   };
 
-  const drinkData = userData?.data;
-  const drinkDataId = userData?.data.id;
+  const openModal = () => {
+    // console.log("Iam Clicking....", open);
+    if (open === false) {
+      setOpen(!open);
+    }
+  };
+
+  const passDrinkData = (id) => {
+    openModal();
+    passId(id);
+  };
 
   // console.log(drinkData);
 
@@ -135,7 +162,6 @@ function DrinksPage() {
                 placeholder="Search name / date brewed e.g 09/2007 / food pair"
                 className="w-full h-full text-[18px] sm:text-[14px] outline-none "
               />
-              {/* <button>Search</button> */}
             </div>
           </div>
           <div className="flex justify-center p-2 relative">
@@ -228,7 +254,11 @@ function DrinksPage() {
                         </p>
                         <div className="flex justify-center items-center gap-[20px] mt-[25px]">
                           <p
-                            onClick={openModal}
+                            onClick={(id) => {
+                              if (!isPreviousDrink) {
+                                passDrinkData(project.id);
+                              }
+                            }}
                             className=" px-4 py-2 text-center md:text-[14px] sm:text-[12px] border-2 border-light-col hover:bg-light-col hover:text-white rounded-md cursor-pointer"
                           >
                             PRODUCT DETAILS{" "}
@@ -294,12 +324,7 @@ function DrinksPage() {
         </div>
       </div>
       <div className="">
-        <DrinksDetails
-          open={open}
-          setOpen={setOpen}
-          drinkData={drinkData}
-          drinkDataId={drinkDataId}
-        />
+        <DrinksDetails open={open} setOpen={setOpen} drinkData={drinkData} />
       </div>
     </>
   );

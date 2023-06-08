@@ -22,8 +22,6 @@ import DrinksPage from "./components/drinks";
 import DrinksDetails from "./components/drinks/drinksDetails";
 
 function App() {
-  let location = useLocation();
-  let { backgroundLocation } = location.state || {};
   return (
     <>
       <Routes>
@@ -60,11 +58,7 @@ function App() {
             </LayoutWrapper>
           }
         />
-        {backgroundLocation && (
-          <Routes>
-            <Route path="/drinkspage/:id" element={<DrinksDetails />} />
-          </Routes>
-        )}
+
         <Route
           path="/faq"
           element={

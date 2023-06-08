@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import LayoutWrapper from "./utils/webWrapper";
 import Homepage from "./pages/homepage";
 import SignupPage from "./pages/signup";
@@ -19,8 +19,11 @@ import BlogDetails from "./pages/blogDetails";
 import FaqPage from "./pages/faq";
 import UsersPage from "./components/drinks";
 import DrinksPage from "./components/drinks";
+import DrinksDetails from "./components/drinks/drinksDetails";
 
 function App() {
+  let location = useLocation();
+  let { backgroundLocation } = location.state || {};
   return (
     <>
       <Routes>
@@ -48,6 +51,7 @@ function App() {
             </LayoutWrapper>
           }
         />
+
         <Route
           path="/drinkspage"
           element={
@@ -56,6 +60,11 @@ function App() {
             </LayoutWrapper>
           }
         />
+        {backgroundLocation && (
+          <Routes>
+            <Route path="/drinkspage/:id" element={<DrinksDetails />} />
+          </Routes>
+        )}
         <Route
           path="/faq"
           element={
@@ -72,7 +81,7 @@ function App() {
               <BlogDetails />
             </LayoutWrapper>
           }
-        />
+        ></Route>
 
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -90,6 +99,7 @@ function App() {
 
         {/* single  route */}
         <Route path="coins/:id" element={<CoinDetails />} />
+        {/* <Route path="/drinkspage/:id" element={<DrinksDetails />} /> */}
       </Routes>
     </>
   );

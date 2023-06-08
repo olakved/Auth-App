@@ -37,8 +37,8 @@ function DrinksDetails({ open, setOpen, drinkData }) {
                       className="h-full"
                     />
                   </div>
-                  <div className=" flex flex-col gap-[20px]">
-                    <p className="text-darky-col font-bold text-[25px] line-clamp-1">
+                  <div className=" flex flex-col flex-wrap gap-[20px]">
+                    <p className="text-darky-col font-bold text-[25px] ">
                       {singleDrink?.name}
                     </p>
                     <p className="text-darky-col">

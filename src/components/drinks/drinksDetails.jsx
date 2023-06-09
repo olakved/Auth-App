@@ -56,6 +56,12 @@ function DrinksDetails({ open, setOpen, drinkData }) {
                   </p>
                   <p className="px-2 text-center">{singleDrink?.description}</p>
                   <p className="font-bold text-center mt-[20px]">
+                    Brewers Tips:
+                  </p>
+                  <p className="px-2 text-center">
+                    {singleDrink?.brewers_tips}
+                  </p>
+                  <p className="font-bold text-center mt-[20px]">
                     Similar Food Pairing:{" "}
                   </p>
                   <div className="flex justify-center gap-[10px] flex-wrap my-[20px] font-[500]">
@@ -74,11 +80,59 @@ function DrinksDetails({ open, setOpen, drinkData }) {
                     Ingerients:{" "}
                   </p>
                 </div>
-                <p className="text-darky-col">{singleDrink?.name}</p>
-                <p className="text-darky-col">{singleDrink?.name}</p>
-                <p className="text-darky-col">{singleDrink?.name}</p>
-                <p className="text-darky-col">{singleDrink?.name}</p>
-                <p className="text-darky-col">{singleDrink?.name}</p>
+                <p className="text-darky-col text-center">
+                  The product contains the following categories of ingredients
+                </p>
+                <div className="flex justify-center mt-3 text-white font-bold">
+                  <p className="px-2 py-1 bg-light-col text-center">Hops</p>
+                </div>
+                <div className="mt-4 border-2">
+                  {singleDrink?.ingredients?.hops?.map((hopItem, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-center gap-[30px] even:bg-gray-100 py-1"
+                    >
+                      <p className="text-darky-col font-[600] w-[30%]">
+                        {hopItem?.name}
+                      </p>
+                      <p className="text-darky-col">
+                        {hopItem?.amount?.value} - {hopItem?.amount?.unit}
+                      </p>
+                      <p className="text-darky-col">{hopItem?.attribute}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex justify-center mt-3 text-white font-bold">
+                  <p className="px-2 py-1 bg-light-col text-center">Malt</p>
+                </div>
+                <div className="mt-4 border-2">
+                  {singleDrink?.ingredients?.malt?.map((maltItem, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-center gap-[30px] even:bg-gray-100 py-1"
+                    >
+                      <p className="text-darky-col font-[600] w-[50%]">
+                        {maltItem?.name}
+                      </p>
+                      <p className="text-darky-col">
+                        {maltItem?.amount?.value} - {maltItem?.amount?.unit}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex justify-center mt-3 text-white font-bold">
+                  <p className="px-2 py-1 bg-light-col text-center">Yeast</p>
+                </div>
+                <p className="text-darky-col text-center mt-3 border-2">
+                  {singleDrink?.ingredients?.yeast}
+                </p>
+
+                <div className="flex justify-center mt-3 text-white font-bold">
+                  <p className="px-2 py-1 bg-light-col text-center">
+                    Methods of Production
+                  </p>
+                </div>
+
                 <p className="text-darky-col">{singleDrink?.name}</p>
               </div>
             </div>

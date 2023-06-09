@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import homeBg from "../../assets/homeBg.jpg";
 import homeBg2 from "../../assets/homeBg2.jpg";
 import homeBg3 from "../../assets/homeBg3.jpg";
-import salesman from "../../assets/salesman.jpg";
+import salesman from "../../assets/salesman.jpeg";
 import { useNavigate } from "react-router-dom";
 import securityUser from "../../assets/securityUser.png";
 import { offerTypes, securityTypes } from "./mockData";

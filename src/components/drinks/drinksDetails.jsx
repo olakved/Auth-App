@@ -17,7 +17,7 @@ function DrinksDetails({ open, setOpen, drinkData }) {
         <div className="mt-[100px]  flex justify-center">
           <div className="w-[600px] h-[500px] pb-[50px] bg-white rounded-md p-[10px] overflow-hidden scrollbar-thin scrollbar-thumb-light-col scrollbar-track-gray-100 scrollbar-track-rounded-md scrollbar-thumb-rounded-md overflow-y-auto">
             <div className="flex justify-end">
-              <div>
+              <div className="">
                 <p
                   onClick={closeModal}
                   className="font-bold px-3 py-1 bg-[red] text-white cursor-pointer mb-2"

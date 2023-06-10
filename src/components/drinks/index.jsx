@@ -249,9 +249,11 @@ function DrinksPage() {
                         <p className="text-center line-clamp-1  mt-[10px] font-[500] text-[18px] md:text-[16px]">
                           {project?.tagline}
                         </p>
-                        <p className="text-center line-clamp-3 mt-[20px] text-[18px] md:text-[14px] ">
-                          {project?.brewers_tips}
-                        </p>
+                        <div className="h-[100px] sm:h-[50px]">
+                          <p className="text-center  line-clamp-3 mt-[20px] text-[18px] md:text-[14px] ">
+                            {project?.brewers_tips}
+                          </p>
+                        </div>
                         <div className="flex justify-center items-center gap-[20px] mt-[25px]">
                           <p
                             onClick={(id) => {

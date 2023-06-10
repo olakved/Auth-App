@@ -131,6 +131,7 @@ function DrinksDetails({ open, setOpen, drinkData }) {
                   <p className="px-2 py-1 bg-light-col text-center">
                     Methods of Production
                   </p>
+                  <p className="text-darky-col">{singleDrink?.name}</p>
                 </div>
 
                 <p className="text-darky-col">{singleDrink?.name}</p>

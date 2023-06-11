@@ -16,7 +16,7 @@ function DrinksDetails({ open, setOpen, drinkData }) {
       <div className="fixed top-0 z-40 w-full h-full bg-black/70">
         <div className="mt-[100px]  flex justify-center">
           <div className="w-[600px] h-[500px] pb-[50px] bg-white rounded-md p-[10px] overflow-hidden scrollbar-thin scrollbar-thumb-light-col scrollbar-track-gray-100 scrollbar-track-rounded-md scrollbar-thumb-rounded-md overflow-y-auto">
-            <div className="flex justify-end ">
+            <div className="flex justify-end mb-[30px]">
               <div className="fixed">
                 <p
                   onClick={closeModal}

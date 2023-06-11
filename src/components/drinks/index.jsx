@@ -1,37 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
-import blogImg from "../../assets/profileImg.jpg";
-import arrowUp from "../../assets/arrowUp.png";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import blogBg from "../../assets/blogBg.jpg";
 import searchIcon from "../../assets/Search.png";
-import {
-  Link,
-  Navigate,
-  Outlet,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
-import ClipLoader from "react-spinners/ClipLoader";
+import { useNavigate } from "react-router-dom";
 import Spinner from "../common/spinner";
-import moment from "moment/moment";
-import { debounce } from "lodash";
-import useDebounce from "../../utils/hooks/debounce";
-import SmallSpinner from "../common/spinner/smallSpinner";
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import DrinksDetails from "./drinksDetails";
-import { getRequest } from "../../utils/apiCalls";
 
 function DrinksPage() {
   const navigate = useNavigate();
+  const ref = useRef(null);
 
   const [searchTitle, setSearchTitle] = useState("");
   const [dataArray, setDataArray] = useState([]);
   const [page, setPage] = useState(1);
   const [open, setOpen] = useState(false);
   const [id, setId] = useState(1);
+  const [clear, setClear] = useState("");
 
   const fetchProjects = (page) => {
     return axios.get(
@@ -90,6 +76,11 @@ function DrinksPage() {
     setSearchTitle(title);
   };
 
+  const clearSearch = () => {
+    ref.current.value = "";
+    setSearchTitle("");
+  };
+
   const passId = (id) => {
     if (!isPreviousDrink) {
       setId(id);
@@ -100,6 +91,7 @@ function DrinksPage() {
     // console.log("Iam Clicking....", open);
     if (open === false) {
       setOpen(!open);
+      clearSearch();
     }
   };
 
@@ -158,10 +150,17 @@ function DrinksPage() {
               <img src={searchIcon} alt="" className="sm:py-1 sm:px-3" />
               <input
                 type="text"
+                ref={ref}
                 onChange={(e) => handleChangeValue(e.target.value)}
                 placeholder="Search name / date brewed e.g 09/2007 / food pair"
                 className="w-full h-full text-[18px] sm:text-[14px] outline-none "
               />
+              <p
+                onClick={clearSearch}
+                className="font-bold text-darky-col bg-slate-100 px-3 rounded-md py-1 hover:bg-darky-col hover:text-white"
+              >
+                X
+              </p>
             </div>
           </div>
           <div className="flex justify-center p-2 relative">

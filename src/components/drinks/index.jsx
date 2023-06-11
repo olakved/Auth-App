@@ -168,13 +168,17 @@ function DrinksPage() {
             <div
               className={`${
                 !searchTitle ? "invisible" : "visible"
-              } w-[600px] sm:w-full absolute z-40 bg-white h-[200px] overflow-hidden px-4 scrollbar-thin scrollbar-thumb-darky-col scrollbar-track-gray-100 scrollbar-track-rounded-md scrollbar-thumb-rounded-md overflow-y-auto`}
+              } w-[600px] sm:w-full absolute z-30 bg-white h-[200px] overflow-hidden px-4 scrollbar-thin scrollbar-thumb-darky-col scrollbar-track-gray-100 scrollbar-track-rounded-md scrollbar-thumb-rounded-md overflow-y-auto`}
             >
               {dataArray?.map((item) => (
                 <h5
                   key={item.id}
                   className="py-2 border-b-[1px] cursor-pointer"
-                  onClick={() => navigate("/")}
+                  onClick={(id) => {
+                    if (!isPreviousDrink) {
+                      passDrinkData(item.id);
+                    }
+                  }}
                 >
                   {item.name}
                 </h5>

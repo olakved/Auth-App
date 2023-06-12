@@ -12,6 +12,7 @@ import Modal from "../../components/modal";
 import NewsSect from "./news";
 import moment from "moment/moment";
 import TrendingNews from "./trendingNews";
+import ServiceList from "./serviceList";
 
 function Homepage() {
   const navigate = useNavigate();
@@ -147,6 +148,8 @@ function Homepage() {
           </div>
         </div>
       </div>
+
+      <ServiceList />
     </>
   );
 }

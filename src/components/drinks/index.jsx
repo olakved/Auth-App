@@ -157,7 +157,7 @@ function DrinksPage() {
               />
               <p
                 onClick={clearSearch}
-                className="font-bold text-darky-col bg-slate-100 px-3 rounded-md py-1 hover:bg-darky-col hover:text-white"
+                className="font-bold text-darky-col bg-slate-100 px-3 rounded-md py-1 hover:bg-darky-col hover:text-white sm:bg-slate-100/30 "
               >
                 X
               </p>

@@ -151,7 +151,7 @@ function DrinksDetails({ open, setOpen, drinkData }) {
                   {""} hours. This made the master brewer conclude that the
                   product is a twist of{" "}
                   {singleDrink?.method?.twist ||
-                    "Honey and the best know resources"}
+                    "Honey and the best known resources"}
                 </p>
 
                 <p className="text-darky-col mt-5 text-center">

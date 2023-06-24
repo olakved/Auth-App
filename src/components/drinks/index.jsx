@@ -241,7 +241,7 @@ function DrinksPage() {
                           <img
                             src={project.image_url}
                             alt=""
-                            className="h-full"
+                            className="h-full hover:scale-110"
                           />
                         </div>
                       </div>

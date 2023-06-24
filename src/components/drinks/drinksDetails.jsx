@@ -34,7 +34,7 @@ function DrinksDetails({ open, setOpen, drinkData }) {
                     <img
                       src={singleDrink?.image_url}
                       alt=""
-                      className="h-full"
+                      className="h-full hover:scale-110"
                     />
                   </div>
                   <div className=" flex flex-col flex-wrap gap-[20px]">

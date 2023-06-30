@@ -3,6 +3,7 @@ import faqBg from "../../assets/faqBg.jpg";
 import FaqComp from "./faqComp";
 import { faq } from "./mockData";
 import { BsWhatsapp } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 // const faq = [
 //   {
@@ -36,9 +37,14 @@ function FaqPage() {
 
   return (
     <div className="py-[75px]">
-      <div className="fixed z-40 top-0 left-0 ml-[30px] md:ml-[10px] mt-[400px] md:mt-[300px] bg-[green] p-2 rounded-full shadow-md text-white cursor-pointer">
-        <BsWhatsapp />
-      </div>
+      <Link
+        to="https://wa.me/2348100805056?text=Hi,%20I'll%20like%20to%20to%20know%20more%20about%20your%20app,%20Kolubo!"
+        target="blank"
+      >
+        <div className="fixed z-40 top-0 left-0 ml-[30px] md:ml-[10px] mt-[400px] md:mt-[300px] bg-[green] p-2 rounded-full shadow-md text-white cursor-pointer">
+          <BsWhatsapp />
+        </div>
+      </Link>
       <div className="w-full h-[350px] sm:h-[250px] overflow-hidden relative">
         <img src={faqBg} alt="" className="w-full h-full object-cover" />
         <div className="absolute top-0 bg-black w-full h-full opacity-80"></div>

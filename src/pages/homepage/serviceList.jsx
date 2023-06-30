@@ -139,23 +139,6 @@ function ServiceList() {
           </div>
         ))}
       </div>
-
-      {/* <p className="mt-[150px] text-red-500">People Array</p>
-      <div className="flex justify-center gap-[40px]">
-        {array3.map((person, id) => (
-          <div key={id} className="">
-            <img src={person.img} alt="" className="w-[200px] h-[170px]" />
-            <p className="px-2 py-1 bg-red-500 text-white">{person.icon}</p>
-            <div className="[&>*:nth-child(odd)]:bg-slate-200">
-              <p className="px-2 py-2 border-b-2">
-                {person.firstName || "NO Name"}
-              </p>
-              <p className="px-2 py-2 border-b-2">{person.lastName}</p>
-              <p className="px-2 py-2 border-b-2">{person.address}</p>
-            </div>
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 }

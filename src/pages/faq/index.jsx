@@ -42,7 +42,7 @@ function FaqPage() {
         target="blank"
       >
         <div className="fixed z-40 top-0 left-0 ml-[30px] md:ml-[10px] mt-[400px] md:mt-[300px] bg-[green] p-2 rounded-full shadow-md text-white cursor-pointer">
-          <BsWhatsapp />
+          <BsWhatsapp size={30} />
         </div>
       </Link>
       <div className="w-full h-[350px] sm:h-[250px] overflow-hidden relative">

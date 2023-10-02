@@ -13,6 +13,7 @@ import NewsSect from "./news";
 import moment from "moment/moment";
 import TrendingNews from "./trendingNews";
 import ServiceList from "./serviceList";
+import Hero from "./hero";
 
 function Homepage() {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ function Homepage() {
     <>
       <div className="w-full pt-[75px]">
         <div
-          className="w-full h-[530px] overflow-hidden  relative"
+          className="w-full h-[530px] xlA:h-[600px] overflow-hidden  relative"
           ref={emblaRef}
         >
           <div className="flex h-full w-full ">
@@ -96,6 +97,8 @@ function Homepage() {
             </div>
           </div>
         </div> */}
+
+        <Hero />
 
         <div className="px-[30px] mt-[30px] flex justify-center gap-[30px] md:gap-[10px] sm:flex-col sm:gap-[30px]">
           {securityTypes?.map((item, index) => (
